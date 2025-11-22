@@ -38,7 +38,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap &kp SET_EN>, <&to L_SYS>;
-        }
+        };
 
         ht_kp: hold_tap_key_press_preferred {
             compatible = "zmk,behavior-hold-tap";
@@ -60,18 +60,18 @@
             bindings = <&sl>, <&kp>;
         };
 
-        td_b_ru: tap_dance_b_toggle_ru {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp B>, <&to_a_ru_l>;
-        };
-
         td_ru_comma_en: tap_dance_ru_comma_en {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp RU_COMMA>, <&to_a_l>;
+        };
+
+        td_b_ru: tap_dance_b_toggle_ru {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp B>, <&to_a_ru_l>;
         };
 
         td_j_cw: tap_dance_j_caps_word {
