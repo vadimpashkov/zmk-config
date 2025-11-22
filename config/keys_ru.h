@@ -45,8 +45,8 @@
 #define RU_SHA      I               // Ш
 #define RU_SHCH     O               // Щ
 #define RU_Z        P               // З
-#define RU_H        LBRC            // Х
-#define RU_HARD     RBRC            // Ъ
+#define RU_H        LBKT            // Х
+#define RU_HARD     RBKT            // Ъ
 #define RU_BSLH     BSLH            // (backslash)
 
 // Row 3
