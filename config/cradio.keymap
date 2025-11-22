@@ -22,22 +22,22 @@
 
 / {
     behaviors {
-        to_a_ru_l: to_alpha_ru_layer {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp SET_RU>, <&macro_tap &to L_A_RU>;
-        };
-
         to_a_l: to_alpha_layer {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp SET_EN>, <&macro_tap &to L_A>;
+            bindings = <&macro_tap &kp SET_EN>, <&to L_A>;
+        };
+
+        to_a_ru_l: to_alpha_ru_layer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SET_RU>, <&to L_A_RU>;
         };
 
         to_sys_l: to_system_layer {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp SET_EN>, <&macro_tap &to L_SYS>;
+            bindings = <&macro_tap &kp SET_EN>, <&to L_SYS>;
         }
 
         ht_kp: hold_tap_key_press_preferred {
