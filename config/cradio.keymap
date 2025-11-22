@@ -17,9 +17,29 @@
 #define LH_MODS(k1,k2,k3,k4) &ht_kp LGUI k1 &ht_kp LALT k2 &ht_kp LCTRL k3 &ht_kp LSHIFT k4
 #define RH_MODS(k1,k2,k3,k4) &ht_kp RSHIFT k1 &ht_kp RCTRL k2 &ht_kp RALT k3 &ht_kp RGUI k4
 #define WINSCST (LG(LS(S)))
+#define SET_EN (LA(LS(N1)))
+#define SET_RU (LA(LS(N2)))
 
 / {
     behaviors {
+        to_a_ru_l: to_alpha_ru_layer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SET_RU>, <&macro_tap &to L_A_RU>;
+        };
+
+        to_a_l: to_alpha_layer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SET_EN>, <&macro_tap &to L_A>;
+        };
+
+        to_sys_l: to_system_layer {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp SET_EN>, <&macro_tap &to L_SYS>;
+        }
+
         ht_kp: hold_tap_key_press_preferred {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -30,16 +50,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        ht_to_kp: hold_tap_to_layer_key_press_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&to>, <&kp>;
-        };
-
         ht_sl_kp: hold_tap_sticky_layer_key_press_preferred {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -48,6 +58,20 @@
             quick-tap-ms = <150>;
             require-prior-idle-ms = <100>;
             bindings = <&sl>, <&kp>;
+        };
+
+        td_b_ru: tap_dance_b_toggle_ru {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp B>, <&to_a_ru_l>;
+        };
+
+        td_ru_comma_en: tap_dance_ru_comma_en {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RU_COMMA>, <&to_a_l>;
         };
 
         td_j_cw: tap_dance_j_caps_word {
@@ -169,13 +193,6 @@
             bindings = <&kp RU_SOFT>, <&kp RU_HARD>;
         };
 
-        td_ru_comma_to_a: tap_dance_ru_comma_to_layer_a {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp RU_COMMA>, <&to L_A>;
-        };
-
         td_ru_sha_shch: tap_dance_ru_sha_shch {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -211,7 +228,7 @@
         alpha {
             display-name = "Alpha (A)";
             bindings = <
-            &kp Q       &kp W  &kp F  &kp P       &ht_to_kp L_A_RU B          &td_j_cw       &kp L       &kp U      &kp Y    &kp SEMI
+            &kp Q       &kp W  &kp F  &kp P       &td_b_ru                    &td_j_cw       &kp L       &kp U      &kp Y    &kp SEMI
             LH_MODS(A,  R,     S,     T)          &kp G                       &kp M          RH_MODS(N,  E,         I,       O)
             &lt L_B Z   &kp X  &kp C  &kp D       &kp V                       &kp K          &kp H       &kp COMMA  &kp DOT  &lt L_B SLASH
                                       &tog L_NAS  &ht_sl_kp L_FK SPACE        &kp BACKSPACE  &tog L_NAV
@@ -221,7 +238,7 @@
         alpha_ru {
             display-name = "Alpha-RU (A-RU)";
             bindings = <
-            &kp RU_C       &td_ru_soft_hard  &kp RU_YA  &kp RU_DOT          &td_ru_comma_to_a           &td_ru_z_cw    &kp RU_V       &kp RU_K  &kp RU_D  &kp RU_CH
+            &kp RU_C       &td_ru_soft_hard  &kp RU_YA  &kp RU_DOT          &td_ru_comma_en             &td_ru_z_cw    &kp RU_V       &kp RU_K  &kp RU_D  &kp RU_CH
             &mt_td_1       &mt_td_2          &mt_td_3   &ht_kp LSHIFT RU_O  &kp RU_A                    &kp RU_L       RH_MODS(RU_H,  RU_T,     RU_S,     RU_R)
             &lt L_B RU_YE  &td_ru_sha_shch   &kp RU_H   &kp RU_YERU         &kp RU_YU                   &kp RU_B       &kp RU_M       &kp RU_P  &kp RU_G  &lt L_B RU_ZHE
                                                         &tog L_NAS          &ht_sl_kp L_FK SPACE        &kp BACKSPACE  &tog L_NAV
@@ -231,7 +248,7 @@
         beta {
             display-name = "Beta (B)";
             bindings = <
-            &to L_SYS  &none     &none      &none       &none              &none        &none       &none      &none        &to L_SYS
+            &to_sys_l  &none     &none      &none       &none              &none        &none       &none      &none        &to_sys_l
             &kp LGUI   &kp LALT  &kp LCTRL  &kp LSHIFT  &key_repeat        &key_repeat  &kp RSHIFT  &kp RCTRL  &kp RALT     &kp RGUI
             &none      &none     &none      &none       &none              &none        &none       &none      &none        &none
                                             &kp ENTER   &kp TAB            &kp DELETE   &kp ESC
@@ -271,10 +288,10 @@
         system {
             display-name = "System (Sys)";
             bindings = <
-            &sys_reset      &none  &none  &none  &bt BT_CLR          &bt BT_CLR    &none  &none  &none  &sys_reset
-            &bootloader     &none  &none  &none  &bt BT_SEL 0        &bt BT_SEL 0  &none  &none  &none  &bootloader
-            &studio_unlock  &none  &none  &none  &bt BT_SEL 1        &bt BT_SEL 1  &none  &none  &none  &studio_unlock
-                                          &none  &none               &none         &none
+            &sys_reset      &none  &none  &none       &bt BT_CLR          &bt BT_CLR    &none       &none  &none  &sys_reset
+            &bootloader     &none  &none  &none       &bt BT_SEL 0        &bt BT_SEL 0  &none       &none  &none  &bootloader
+            &studio_unlock  &none  &none  &none       &bt BT_SEL 1        &bt BT_SEL 1  &none       &none  &none  &studio_unlock
+                                          &to_a_l     &none               &none         &to_a_l
             >;
         };
     };
