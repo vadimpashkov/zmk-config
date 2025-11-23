@@ -239,7 +239,7 @@
             display-name = "Alpha-RU (A-RU)";
             bindings = <
             &kp RU_C       &td_ru_soft_hard  &kp RU_YA  &kp RU_DOT          &td_ru_comma_en             &td_ru_z_cw    &kp RU_V       &kp RU_K  &kp RU_D  &kp RU_CH
-            &mt_td_1       &mt_td_2          &mt_td_3   &ht_kp LSHIFT RU_O  &kp RU_A                    &kp RU_L       RH_MODS(RU_H,  RU_T,     RU_S,     RU_R)
+            &mt_td_1       &mt_td_2          &mt_td_3   &ht_kp LSHIFT RU_O  &kp RU_A                    &kp RU_L       RH_MODS(RU_N,  RU_T,     RU_S,     RU_R)
             &lt L_B RU_YE  &td_ru_sha_shch   &kp RU_H   &kp RU_YERU         &kp RU_YU                   &kp RU_B       &kp RU_M       &kp RU_P  &kp RU_G  &lt L_B RU_ZHE
                                                         &tog L_NAS          &ht_sl_kp L_FK SPACE        &kp BACKSPACE  &tog L_NAV
             >;
