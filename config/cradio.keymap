@@ -4,297 +4,198 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <zmk-helpers/helper.h>
 #include <zmk-helpers/key-labels/34.h>
-#include "keys_ru.h"
 
-// Layers
-#define L_A    0
-#define L_A_RU 1
-#define L_B    2
-#define L_NAS  3
-#define L_FK   4
-#define L_NAV  5
-#define L_SYS  6
+/* Layers */
 
-// Simple Macros
+#define EN 0
+#define RU 1
+#define NAS 2
+#define NAV 3
+#define MOUSE 4
+#define FK 5
+#define GAME 6
+#define SYS 7
+
+#define XXX &none
+#define ___ &trans
+
+/* Global defaults */
+
+#define QUICK_TAP_MS 175
+
+&sk {
+    release-after-ms = <900>;
+    quick-release;
+};
+
+// REMARK: Allow sticky mods to chord across sticky layers
+&sl {
+    ignore-modifiers;
+};
+
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+/* Homerow mods */
+// SEE: https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
+
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4
+#define THUMBS LH1 LH0 RH0 RH1
+
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS)          \
+    ZMK_HOLD_TAP(                                       \
+        NAME,                                           \
+        bindings = <HOLD>, <TAP>;                       \
+        flavor = "balanced";                            \
+        tapping-term-ms = <280>;                        \
+        quick-tap-ms = <QUICK_TAP_MS>;                  \
+        require-prior-idle-ms = <150>;                  \
+        hold-trigger-on-release;                        \
+        hold-trigger-key-positions = <TRIGGER_POS>;     \
+    )
+
+MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
+MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
+
+// HACK: Make HRM combos tap-only
+#define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
+  MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
+  ZMK_COMBO_6(NAME, &hm_combo_##NAME HOLD 0, POS, LAYERS, COMBO_MS, IDLE_MS)
+
+/* Combos, mouse emulation */
+
+#include "combos.dtsi"
+#include "leader.dtsi"
+#include "mouse.dtsi"
+
+/* Misc aliases */
+
 #define LH_MODS(k1,k2,k3,k4) &ht_kp LGUI k1 &ht_kp LALT k2 &ht_kp LCTRL k3 &ht_kp LSHIFT k4
 #define RH_MODS(k1,k2,k3,k4) &ht_kp RSHIFT k1 &ht_kp RCTRL k2 &ht_kp RALT k3 &ht_kp RGUI k4
 #define WINSCST (LG(LS(S)))
 #define SET_EN (LA(LS(N1)))
 #define SET_RU (LA(LS(N2)))
+#define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
-/ {
-    behaviors {
-        to_a_l: to_alpha_layer {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp SET_EN>, <&to L_A>;
-        };
+/* Tap Dance */
 
-        to_a_ru_l: to_alpha_ru_layer {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp SET_RU>, <&to L_A_RU>;
-        };
+ZMK_TAP_DANCE(comma_semi, bindings = <&kp COMMA>, <&kp SEMI>;
+              tapping-term-ms = <200>;)
 
-        to_sys_l: to_system_layer {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap &kp SET_EN>, <&to L_SYS>;
-        };
+ZMK_TAP_DANCE(dot_colon, bindings = <&kp DOT>, <&kp COLON>;
+              tapping-term-ms = <200>;)
 
-        ht_kp: hold_tap_key_press_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&kp>, <&kp>;
-        };
+ZMK_TAP_DANCE(qmark_excl, bindings = <&kp QMARK>, <&kp EXCL>;
+              tapping-term-ms = <200>;)
 
-        ht_sl_kp: hold_tap_sticky_layer_key_press_preferred {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <220>;
-            quick-tap-ms = <150>;
-            require-prior-idle-ms = <100>;
-            bindings = <&sl>, <&kp>;
-        };
+ZMK_TAP_DANCE(divide_bslh, bindings = <&kp KP_DIVIDE>, <&kp BSLH>;
+              tapping-term-ms = <200>;)
 
-        td_ru_comma_en: tap_dance_ru_comma_en {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp RU_COMMA>, <&to_a_l>;
-        };
+/* Keymap */
 
-        td_b_ru: tap_dance_b_toggle_ru {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp B>, <&to_a_ru_l>;
-        };
+ZMK_CONDITIONAL_LAYER(sys, NAS NUM, SYS) // NAS + NUM --> SYS.
 
-        td_j_cw: tap_dance_j_caps_word {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp J>, <&caps_word>;
-        };
+#ifndef ZMK_BASE_LAYER
+    #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
+        ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
+#endif
 
-        td_ru_z_cw: tap_dance_ru_z_caps_word {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp RU_Z>, <&caps_word>;
-        };
+ZMK_BASE_LAYER(En,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    &kp Q         &kp W         &kp F         &kp P         &kp B       ,   &kp J         &kp L         &kp U         &kp Y         &kp SQT     ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G       ,   &kp M         &hmr RSHFT N  &hmr RCTRL E  &hmr RALT I   &hmr RGUI O ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    &kp Z         &kp X         &kp C         &kp D         &kp V       ,   &kp K         &kp H         &comma_semi   &dot_colon    &qmark_excl ,
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              &tog NAS      &kp SPACE   ,   &kp ENTER     &tog NAV
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
 
-        td_quote: tap_dance_quotation_marks {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp SQT>, <&kp DQT>, <&kp GRAVE>;
-        };
+ZMK_BASE_LAYER(Ru,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              ___           ___         ,   ___           ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
 
-        td_eql_excl: tap_dance_equal_exclamation {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp EQUAL>, <&kp EXCL>;
-        };
+ZMK_LAYER(Nas,
+     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+          &kp PLUS      &kp N1        &kp N2        &kp N3       &divide_bslh ,     ___           ___           ___           ___           ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp N0        &kp N4        &kp N5        &kp N6       &kp KP_EQUAL ,     ___           ___           ___           ___           ___
+     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+          &kp STAR      &kp N7        &kp N8        &kp N9       &kp KP_MINUS ,     ___           ___           ___           ___           ___
+     // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                                    ___          &kp SPACE    ,     ___           ___
+     //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
+)
 
-        td_star_plus: tap_dance_star_plus {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp STAR>, <&kp PLUS>;
-        };
+ZMK_BASE_LAYER(Nav,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI    ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              ___           ___         ,   ___           ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
 
-        td_minus_under: tap_dance_minus_under {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp KP_MINUS>, <&kp UNDER>;
-        };
+ZMK_BASE_LAYER(Mouse
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           &kp PG_UP     U_MS_U        &kp PG_DN     ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    U_WH_L        U_MS_L        U_MS_D         U_MS_R       U_WH_R      ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           &mkp LCLK     &mkp MCLK      &mkp RCLK    ___         ,   ___           ___           ___           ___           ___         ,
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              U_WH_U        U_WH_D      ,   ___           ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
 
-        td_slash_bslh: tap_dance_slash_backslash {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp KP_SLASH>, <&kp BSLH>;
-        };
+ZMK_BASE_LAYER(Fk,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              ___           ___         ,   ___           ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
 
-        td_dot_comma: tap_dance_dot_comma {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp DOT>, <&kp COMMA>;
-        };
+ZMK_BASE_LAYER(Game,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           ___         ,   ___           ___           ___           ___           ___         ,
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              ___           ___         ,   ___           ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
 
-        td_semi_colon: tap_dance_semicolon_colon {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp SEMI>, <&kp COLON>;
-        };
-
-        td_dllr_at: tap_dance_dollar_at {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp DLLR>, <&kp AT>;
-        };
-
-        td_lpar_rpar: tap_dance_parentheses {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LPAR>, <&kp RPAR>;
-        };
-
-        td_amps_pipe: tap_dance_ampersand_pipe {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp AMPS>, <&kp PIPE>;
-        };
-
-        td_lbrc_rbrc: tap_dance_curly_braces {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LBRC>, <&kp RBRC>;
-        };
-
-        td_lbkt_rbkt: tap_dance_square_brackets {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LBKT>, <&kp RBKT>;
-        };
-
-        td_lt_gt: tap_dance_less_greater {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp LT>, <&kp GT>;
-        };
-
-        td_kpn8_lnlck: tap_dance_kpn8_num_lock {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp KP_N8>, <&kp LNLCK>;
-        };
-
-        td_ru_soft_hard: tap_dance_ru_soft_hard_sign {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp RU_SOFT>, <&kp RU_HARD>;
-        };
-
-        td_ru_sha_shch: tap_dance_ru_sha_shch {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&kp RU_SHA>, <&kp RU_SHCH>;
-        };
-
-        mt_td_1: mod_tap_lgui_td_ruy_ruf {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mt LGUI RU_Y>, <&kp RU_F>;
-        };
-
-        mt_td_2: mod_tap_lalt_td_rui_ruii {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mt LALT RU_I>, <&kp RU_II>;
-        };
-
-        mt_td_3: mod_tap_lctrl_td_rue_ruyo {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mt LCTRL RU_E>, <&kp RU_YO>;
-        };
-    };
-
-    keymap {
-        compatible = "zmk,keymap";
-
-        alpha {
-            display-name = "Alpha (A)";
-            bindings = <
-            &kp Q       &kp W  &kp F  &kp P       &td_b_ru                    &td_j_cw       &kp L       &kp U      &kp Y    &kp SEMI
-            LH_MODS(A,  R,     S,     T)          &kp G                       &kp M          RH_MODS(N,  E,         I,       O)
-            &lt L_B Z   &kp X  &kp C  &kp D       &kp V                       &kp K          &kp H       &kp COMMA  &kp DOT  &lt L_B SLASH
-                                      &tog L_NAS  &ht_sl_kp L_FK SPACE        &kp BACKSPACE  &tog L_NAV
-            >;
-        };
-
-        alpha_ru {
-            display-name = "Alpha-RU (A-RU)";
-            bindings = <
-            &kp RU_C       &td_ru_soft_hard  &kp RU_YA  &kp RU_DOT          &td_ru_comma_en             &td_ru_z_cw    &kp RU_V       &kp RU_K  &kp RU_D  &kp RU_CH
-            &mt_td_1       &mt_td_2          &mt_td_3   &ht_kp LSHIFT RU_O  &kp RU_A                    &kp RU_L       RH_MODS(RU_N,  RU_T,     RU_S,     RU_R)
-            &lt L_B RU_YE  &td_ru_sha_shch   &kp RU_H   &kp RU_YERU         &kp RU_YU                   &kp RU_B       &kp RU_M       &kp RU_P  &kp RU_G  &lt L_B RU_ZHE
-                                                        &tog L_NAS          &ht_sl_kp L_FK SPACE        &kp BACKSPACE  &tog L_NAV
-            >;
-        };
-
-        beta {
-            display-name = "Beta (B)";
-            bindings = <
-            &to_sys_l  &none     &none      &none       &none              &none        &none       &none      &none        &to_sys_l
-            &kp LGUI   &kp LALT  &kp LCTRL  &kp LSHIFT  &key_repeat        &key_repeat  &kp RSHIFT  &kp RCTRL  &kp RALT     &kp RGUI
-            &none      &none     &none      &none       &none              &none        &none       &none      &none        &none
-                                            &kp ENTER   &kp TAB            &kp DELETE   &kp ESC
-            >;
-        };
-
-        nas {
-            display-name = "Numbers And Symbols (NAS)";
-            bindings = <
-            &td_kpn8_lnlck  &kp KP_N7      &kp KP_N6  &kp KP_N5  &td_slash_bslh         &kp HASH        &td_dllr_at    &kp CARET      &kp TILDE      &kp PRCNT
-            &kp KP_N4       &kp KP_N3      &kp KP_N2  &kp KP_N1  &td_quote              &td_semi_colon  &td_lpar_rpar  &td_lbrc_rbrc  &td_lbkt_rbkt  &td_lt_gt
-            &td_eql_excl    &td_star_plus  &kp KP_N0  &kp KP_N9  &td_minus_under        &kp QMARK       &td_amps_pipe  &kp RU_NO      &none          &none
-                                                      &trans     &td_dot_comma          &key_repeat     &none
-            >;
-        };
-
-        fk {
-            display-name = "F-keys (FK)";
-            bindings = <
-            &kp F8   &kp F7   &kp F6   &kp F5  &kp WINSCST        &kp PSCRN  &kp F17  &kp F18  &kp F19  &kp F20
-            &kp F4   &kp F3   &kp F2   &kp F1  &none              &none      &kp F13  &kp F14  &kp F15  &kp F16
-            &kp F12  &kp F11  &kp F10  &kp F9  &none              &none      &kp F21  &kp F22  &kp F23  &kp F24
-                                       &none   &none              &none      &none
-            >;
-        };
-
-        navigation {
-            display-name = "Navigation (Nav)";
-            bindings = <
-            &kp LS(TAB)  &none      &none          &kp TAB       &kp LC(X)            &mkp RCLK  &mmv MOVE_LEFT  &mmv MOVE_UP  &mmv MOVE_DOWN  &mmv MOVE_RIGHT
-            &kp LEFT     &kp DOWN   &kp UP         &kp RIGHT     &kp LC(C)            &mkp MCLK  &kp RSHIFT      &kp RCTRL     &kp RALT        &kp RGUI
-            &kp HOME     &kp LC(Z)  &kp LC(LS(Z))  &kp END       &kp LC(V)            &none      &msc SCRL_LEFT  &msc SCRL_UP  &msc SCRL_DOWN  &msc SCRL_RIGHT
-                                                   &kp LC(LEFT)  &kp LC(RIGHT)        &mkp LCLK  &trans
-            >;
-        };
-
-        system {
-            display-name = "System (Sys)";
-            bindings = <
-            &sys_reset      &none  &none  &none       &bt BT_CLR          &bt BT_CLR    &none       &none  &none  &sys_reset
-            &bootloader     &none  &none  &none       &bt BT_SEL 0        &bt BT_SEL 0  &none       &none  &none  &bootloader
-            &none           &none  &none  &none       &bt BT_SEL 1        &bt BT_SEL 1  &none       &none  &none  &none
-                                          &to_a_l     &none               &none         &to_a_l
-            >;
-        };
-    };
-};
+ZMK_BASE_LAYER(Sys,
+//╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
+                               _BT_SEL_KEYS_                            ,   ___           ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           &bootloader ,   &bootloader   ___           ___           ___           ___         ,
+//├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
+    ___           ___           ___           ___           &sys_reset  ,   &sys_reset    ___           ___           ___           ___         ,
+//╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
+                                              ___           ___         ,   ___           ___
+//                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
+)
