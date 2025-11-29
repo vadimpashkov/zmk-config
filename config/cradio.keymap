@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <zmk-helpers/helper.h>
 #include <zmk-helpers/key-labels/34.h>
+#include <behaviors/unicode.dtsi>
 
 /* Layers */
 
@@ -37,6 +38,12 @@
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
+};
+
+&uc {
+    default-mode = <UC_MODE_WIN_COMPOSE>;
+    minimum-length = <0>;
+    win-compose-key = <RALT>;
 };
 
 /* Homerow mods */

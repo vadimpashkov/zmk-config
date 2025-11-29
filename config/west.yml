@@ -13,5 +13,8 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: main
+    - name: zmk-unicode
+      remote: urob
+      revision: v0.3 # set to same as ZMK version above
   self:
     path: config
