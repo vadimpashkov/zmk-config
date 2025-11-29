@@ -82,6 +82,9 @@ MAKE_HRM(hmr_ru, &kp, &uc, KEYS_L THUMBS)
 
 ZMK_HOLD_TAP(sl_kp, bindings = <&sl>, <&kp>; MT_CORE)
 
+ZMK_MACRO(graves, bindings = <&kp GRAVE &kp GRAVE &sk GRAVE>; wait-ms = <0>;
+          tap-ms = <5>;)
+
 // HACK: Make HRM combos tap-only
 #define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
@@ -137,7 +140,7 @@ ZMK_TAP_DANCE(qmark_excl, bindings = <&kp QMARK>, <&kp EXCL>;
 ZMK_TAP_DANCE(divide_bslh, bindings = <&kp KP_DIVIDE>, <&kp BSLH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(grave, bindings = <&kp GRAVE>, <&kp GRAVE &kp GRAVE &kp GRAVE>;
+ZMK_TAP_DANCE(grave, bindings = <&kp GRAVE>, <&graves>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(hash_numero, bindings = <&kp HASH>, <&uc 0x2116 0>;
@@ -249,7 +252,7 @@ ZMK_BASE_LAYER(Nas,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
           &kp PLUS      &kp N1        &kp N2        &kp N3       &divide_bslh ,     &grave        &hash_numero  &kp AT        &kp PRCNT     &sqt_dqt    ,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-          &kp N0        &kp N4        &kp N5        &kp N6       &kp KP_EQUAL ,     &amps_pipe    &lpar_rpar    &lbrc_rbrc    &lbkt_rbkt    &lt_gt      ,
+          &kp N0        &kp N4        &kp N5        &kp N6        &kp EQUAL   ,     &amps_pipe    &lpar_rpar    &lbrc_rbrc    &lbkt_rbkt    &lt_gt      ,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp STAR      &kp N7        &kp N8        &kp N9       &kp KP_MINUS ,     &dllr_tilde   &under_caret  &comma_semi   &dot_colon    &qmark_excl ,
      // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
