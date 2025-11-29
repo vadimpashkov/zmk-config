@@ -7,7 +7,7 @@
 #include <behaviors/unicode.dtsi>
 
 #include "keys_ru.h"
-#include "symbols_unicodes.h"
+#include "symbols_unicode.h"
 
 /* Layers */
 
