@@ -5,6 +5,7 @@
 #include <zmk-helpers/helper.h>
 #include <zmk-helpers/key-labels/34.h>
 #include <behaviors/unicode.dtsi>
+#include "keys_ru.h"
 
 /* Layers */
 
