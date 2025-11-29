@@ -80,8 +80,6 @@ MAKE_HRM(hmr_ru, &kp, &uc, KEYS_L THUMBS)
 
 &mt { MT_CORE };
 
-ZMK_HOLD_TAP(space_alt, bindings = <&kp SPACE>, <&kp LALT>; MT_CORE)
-
 // HACK: Make HRM combos tap-only
 #define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
@@ -116,6 +114,8 @@ ZMK_HOLD_TAP(space_alt, bindings = <&kp SPACE>, <&kp LALT>; MT_CORE)
 
 #define PREV_WORD LC(LEFT)
 #define NEXT_WORD LC(RIGHT)
+
+#define _SPACE_ALT_ &hml SPACE LALT
 
 /* Tap Dance */
 
@@ -277,7 +277,7 @@ ZMK_BASE_LAYER(Game,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LCTRL     &kp Z         &kp X         &kp C         &kp V       ,   NNN           NNN           NNN           NNN           NNN         ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              &mo NAS       &space_alt  ,   NNN           &to EN
+                                              &mo NAS       _SPACE_ALT_ ,   NNN           &to EN
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
