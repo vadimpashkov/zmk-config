@@ -90,6 +90,10 @@ ZMK_MACRO(ru_v_macro, bindings = <&uc UC_RU_V>;)
 ZMK_MACRO(ru_n_macro, bindings = <&uc UC_RU_N>;)
 ZMK_MACRO(ru_t_macro, bindings = <&uc UC_RU_T>;)
 
+ZMK_MACRO(ru_a_macro, bindings = <&uc UC_RU_A>;)
+ZMK_MACRO(ru_o_macro, bindings = <&uc UC_RU_O>;)
+ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
+
 // HACK: Make HRM combos tap-only
 #define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
   MAKE_HRM(hm_combo_##NAME, &kp, TAP, SIDE THUMBS)                             \
@@ -105,7 +109,7 @@ ZMK_MACRO(ru_t_macro, bindings = <&uc UC_RU_T>;)
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
 #define _HML_RU_KEYS_ &hml_ru LGUI &ru_z_macro &hml_ru LALT &ru_v_macro &hml_ru LCTRL &ru_n_macro &hml_ru LSHFT &ru_t_macro
-#define _HMR_RU_KEYS_ &hmr_ru RSHFT UC_RU_A &hmr_ru RCTRL UC_RU_O &hmr_ru RALT UC_RU_YE &hmr_ru RGUI UC_RU_S
+#define _HMR_RU_KEYS_ &hmr_ru RSHFT &ru_a_macro &hmr_ru RCTRL &ru_o_macro &hmr_ru RALT &ru_ye_yo &hmr_ru RGUI &ru_s_macro
 
 #define WINSCST LG(LS(S))
 
@@ -221,7 +225,7 @@ ZMK_BASE_LAYER(Ru,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &uc UC_RU_BI  &uc UC_RU_K   &uc UC_RU_L   &uc UC_RU_B   &ru_ch_ts   ,   &ru_sh_shch   &ru_u_yu     &uc UC_RU_YA   &uc UC_RU_E   &sqt_dqt    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                        _HML_RU_KEYS_                       &uc UC_RU_D ,   &ru_i_y       &uc UC_RU_A  &uc UC_RU_O    &ru_ye_yo     &uc UC_RU_S ,
+                        _HML_RU_KEYS_                       &uc UC_RU_D ,   &ru_i_y                            _HMR_RU_KEYS_                    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &ru_kh_zh     &uc UC_RU_P   &uc UC_RU_R   &uc UC_RU_M   &uc UC_RU_G ,   &uc UC_RU_F  &ru_soft_hard  &comma_semi   &dot_colon    &qmark_excl ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
