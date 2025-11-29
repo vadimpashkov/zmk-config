@@ -117,13 +117,13 @@ ZMK_MACRO(to_game_layer, bindings = <&macro_tap &kp SET_EN>, <&to GAME>;)
 #define EMOJI LG(DOT)
 #define BUFFER LG(V)
 
-#define SAVE LC(S)
+#define DSAVE LC(S)
 
-#define COPY LC(C)
-#define PASTE LC(V)
+#define DCOPY LC(C)
+#define DPASTE LC(V)
 
-#define UNDO LC(Z)
-#define REDO LC(Y)
+#define DUNDO LC(Z)
+#define DREDO LC(Y)
 
 #define PREV_WORD LC(LEFT)
 #define NEXT_WORD LC(RIGHT)
@@ -235,11 +235,11 @@ ZMK_BASE_LAYER(Ru,
 
 ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &buffer_emoji  &kp HOME      &kp UP        &kp END       &kp REDO    ,   XXX           XXX           XXX           XXX           XXX         ,
+   &buffer_emoji  &kp HOME      &kp UP        &kp END       &kp DREDO   ,   XXX           XXX           XXX           XXX           XXX         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp TAB_BACK   &kp LEFT      &kp DOWN      &kp RIGHT     &kp TAB     ,   XXX           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &tog MOUSE    &kp COPY      &kp SAVE      &kp PASTE     &kp UNDO    ,   XXX           XXX           XXX           XXX           XXX         ,
+    &tog MOUSE    &kp DCOPY     &kp DSAVE     &kp DPASTE    &kp DUNDO   ,   XXX           XXX           XXX           XXX           XXX         ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                             &kp PREV_WORD &kp NEXT_WORD ,   &kp ENTER     ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
