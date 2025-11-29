@@ -96,7 +96,7 @@ ZMK_TAP_DANCE(divide_bslh, bindings = <&kp KP_DIVIDE>, <&kp BSLH>;
 
 /* Keymap */
 
-ZMK_CONDITIONAL_LAYER(sys, NAS NUM, SYS) // NAS + NUM --> SYS.
+ZMK_CONDITIONAL_LAYER(sys, NAS NAV, SYS) // NAS + NAV --> SYS.
 
 #ifndef ZMK_BASE_LAYER
     #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
