@@ -69,7 +69,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 /* Combos, mouse emulation */
 
 #include "combos.dtsi"
-#include "leader.dtsi"
 #include "mouse.dtsi"
 
 /* Misc aliases */
