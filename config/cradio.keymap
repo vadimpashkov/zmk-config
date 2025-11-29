@@ -5,7 +5,9 @@
 #include <zmk-helpers/helper.h>
 #include <zmk-helpers/key-labels/34.h>
 #include <behaviors/unicode.dtsi>
+
 #include "keys_ru.h"
+#include "symbols_unicodes.h"
 
 /* Layers */
 
@@ -18,7 +20,7 @@
 #define GAME 6
 #define SYS 7
 
-#define NNN &none
+#define XXX &none
 #define ___ &trans
 
 /* Global defaults */
@@ -83,17 +85,13 @@ MAKE_HRM(hmr_ru, &kp, &uc, KEYS_L THUMBS)
 
 ZMK_HOLD_TAP(sl_kp, bindings = <&sl>, <&kp>; MT_CORE)
 
-ZMK_MACRO(graves, bindings = <&kp GRAVE &kp GRAVE &sk GRAVE>; wait-ms = <0>;
+ZMK_MACRO(graves, bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>; wait-ms = <0>;
           tap-ms = <5>;)
 
-ZMK_MACRO(ru_z_macro, bindings = <&uc UC_RU_Z>;)
-ZMK_MACRO(ru_v_macro, bindings = <&uc UC_RU_V>;)
-ZMK_MACRO(ru_n_macro, bindings = <&uc UC_RU_N>;)
-ZMK_MACRO(ru_t_macro, bindings = <&uc UC_RU_T>;)
-
-ZMK_MACRO(ru_a_macro, bindings = <&uc UC_RU_A>;)
-ZMK_MACRO(ru_o_macro, bindings = <&uc UC_RU_O>;)
-ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
+ZMK_MACRO(to_en_layer, bindings = <&macro_tap &kp SET_EN>, <&to EN>;)
+ZMK_MACRO(to_ru_layer, bindings = <&macro_tap &kp SET_RU>, <&to RU>;)
+ZMK_MACRO(to_sys_layer, bindings = <&macro_tap &kp SET_EN>, <&to SYS>;)
+ZMK_MACRO(to_game_layer, bindings = <&macro_tap &kp SET_EN>, <&to GAME>;)
 
 // HACK: Make HRM combos tap-only
 #define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
@@ -109,8 +107,8 @@ ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
 
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
-#define _HML_RU_KEYS_ &hml_ru LGUI &ru_z_macro &hml_ru LALT &ru_v_macro &hml_ru LCTRL &ru_n_macro &hml_ru LSHFT &ru_t_macro
-#define _HMR_RU_KEYS_ &hmr_ru RSHFT &ru_a_macro &hmr_ru RCTRL &ru_o_macro &hmr_ru RALT &ru_ye_yo &hmr_ru RGUI &ru_s_macro
+#define _HML_RU_KEYS_ &hml_ru LGUI RU_Z &hml_ru LALT RU_V &hml_ru LCTRL RU_N &hml_ru LSHFT RU_T
+#define _HMR_RU_KEYS_ &hmr_ru RSHFT RU_A &hmr_ru RCTRL RU_O &hmr_ru RALT &ru_ye_yo &hmr_ru RGUI RU_S
 
 #define WINSCST LG(LS(S))
 
@@ -133,30 +131,33 @@ ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
 #define _SPACE_ALT_ &hml LALT SPACE
 #define _SPACE_SL_FK_ &sl_kp FK SPACE
 
+#define SET_EN LA(LS(N1))
+#define SET_RU LA(LS(N2))
+
 /* Tap Dance */
 
-ZMK_TAP_DANCE(sqt_dqt, bindings = <&kp SQT>, <&kp DQT>;
+ZMK_TAP_DANCE(sqt_dqt, bindings = <&uc SUC_SQT>, <&uc SUC_DQT>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(comma_semi, bindings = <&kp COMMA>, <&kp SEMI>;
+ZMK_TAP_DANCE(comma_semi, bindings = <&uc SUC_COMMA>, <&uc SUC_SEMI>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(dot_colon, bindings = <&kp DOT>, <&kp COLON>;
+ZMK_TAP_DANCE(dot_colon, bindings = <&uc SUC_DOT>, <&uc SUC_COLON>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(qmark_excl, bindings = <&kp QMARK>, <&kp EXCL>;
+ZMK_TAP_DANCE(qmark_excl, bindings = <&uc SUC_QMARK>, <&kp EXCL>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(fslh_bslh, bindings = <&kp FSLH>, <&kp BSLH>;
+ZMK_TAP_DANCE(fslh_bslh, bindings = <&uc SUC_FSLH>, <&uc SUC_BSLH>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(grave, bindings = <&kp GRAVE>, <&graves>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(hash_numero, bindings = <&kp HASH>, <&uc 0x2116 0>;
+ZMK_TAP_DANCE(hash_no, bindings = <&uc SUC_HASH>, <&uc SUC_NO>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(amps_pipe, bindings = <&kp AMPS>, <&kp PIPE>;
+ZMK_TAP_DANCE(amps_pipe, bindings = <&uc SUC_AMPS>, <&kp PIPE>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lpar_rpar, bindings = <&kp LPAR>, <&kp RPAR>;
@@ -165,40 +166,40 @@ ZMK_TAP_DANCE(lpar_rpar, bindings = <&kp LPAR>, <&kp RPAR>;
 ZMK_TAP_DANCE(lbrc_rbrc, bindings = <&kp LBRC>, <&kp RBRC>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&kp LBKT>, <&kp RBKT>;
+ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&uc SUC_LBKT>, <&uc SUC_RBKT>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lt_gt, bindings = <&kp LT>, <&kp GT>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(dllr_tilde, bindings = <&kp DLLR>, <&kp TILDE>;
+ZMK_TAP_DANCE(dllr_tilde, bindings = <&kp SUC_DLLR>, <&kp TILDE>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&kp CARET>;
+ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&uc SUC_CARET>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp BUFFER>, <&kp EMOJI>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ye_yo, bindings = <&uc UC_RU_YE>, <&uc UC_RU_YO>;
+ZMK_TAP_DANCE(ru_ye_yo, bindings = <&kp RU_YE>, <&kp RU_YO>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_kh_zh, bindings = <&uc UC_RU_KH>, <&uc UC_RU_ZH>;
+ZMK_TAP_DANCE(ru_kh_zh, bindings = <&kp RU_KH>, <&kp RU_ZH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ch_ts, bindings = <&uc UC_RU_CH>, <&uc UC_RU_TS>;
+ZMK_TAP_DANCE(ru_ch_ts, bindings = <&kp RU_CH>, <&kp RU_TS>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_soft_hard, bindings = <&uc UC_RU_SOFT>, <&uc UC_RU_HARD>;
+ZMK_TAP_DANCE(ru_soft_hard, bindings = <&kp RU_SOFT>, <&kp RU_HARD>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_i_y, bindings = <&uc UC_RU_I>, <&uc UC_RU_Y>;
+ZMK_TAP_DANCE(ru_i_y, bindings = <&kp RU_I>, <&kp RU_Y>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_sh_shch, bindings = <&uc UC_RU_SH>, <&uc UC_RU_SHCH>;
+ZMK_TAP_DANCE(ru_sh_shch, bindings = <&kp RU_SH>, <&kp RU_SHCH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_u_yu, bindings = <&uc UC_RU_U>, <&uc UC_RU_YU>;
+ZMK_TAP_DANCE(ru_u_yu, bindings = <&kp RU_U>, <&kp RU_YU>;
               tapping-term-ms = <200>;)
 
 /* Keymap */
@@ -222,11 +223,11 @@ ZMK_BASE_LAYER(En,
 
 ZMK_BASE_LAYER(Ru,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &uc UC_RU_BI  &uc UC_RU_K   &uc UC_RU_L   &uc UC_RU_B   &ru_ch_ts   ,   &ru_sh_shch   &ru_u_yu     &uc UC_RU_YA   &uc UC_RU_E   &sqt_dqt    ,
+    &kp RU_BI     &kp RU_K      &kp RU_L      &kp RU_B      &ru_ch_ts   ,   &ru_sh_shch   &ru_u_yu      &kp RU_YA     &kp RU_E      &sqt_dqt    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                        _HML_RU_KEYS_                       &uc UC_RU_D ,   &ru_i_y                            _HMR_RU_KEYS_                    ,
+                        _HML_RU_KEYS_                       &kp RU_D    ,   &ru_i_y                           _HMR_RU_KEYS_                     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &ru_kh_zh     &uc UC_RU_P   &uc UC_RU_R   &uc UC_RU_M   &uc UC_RU_G ,   &uc UC_RU_F  &ru_soft_hard  &comma_semi   &dot_colon    &qmark_excl ,
+    &ru_kh_zh     &kp RU_P      &kp RU_R      &kp RU_M      &kp RU_G    ,   &kp RU_F     &ru_soft_hard  &comma_semi   &dot_colon    &qmark_excl ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                               &tog NAS    _SPACE_SL_FK_ ,   &kp ENTER     &tog NAV
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
@@ -234,11 +235,11 @@ ZMK_BASE_LAYER(Ru,
 
 ZMK_BASE_LAYER(Nav,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &buffer_emoji  &kp HOME      &kp UP        &kp END       &kp REDO    ,   NNN           NNN           NNN           NNN           NNN         ,
+   &buffer_emoji  &kp HOME      &kp UP        &kp END       &kp REDO    ,   XXX           XXX           XXX           XXX           XXX         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-   &kp TAB_BACK   &kp LEFT      &kp DOWN      &kp RIGHT     &kp TAB     ,   NNN           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI    ,
+   &kp TAB_BACK   &kp LEFT      &kp DOWN      &kp RIGHT     &kp TAB     ,   XXX           &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &tog MOUSE    &kp COPY      &kp SAVE      &kp PASTE     &kp UNDO    ,   NNN           NNN           NNN           NNN           NNN         ,
+    &tog MOUSE    &kp COPY      &kp SAVE      &kp PASTE     &kp UNDO    ,   XXX           XXX           XXX           XXX           XXX         ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                             &kp PREV_WORD &kp NEXT_WORD ,   &kp ENTER     ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
@@ -258,7 +259,7 @@ ZMK_BASE_LAYER(Mouse,
 
 ZMK_BASE_LAYER(Nas,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &kp PLUS      &kp N1        &kp N2        &kp N3        &fslh_bslh  ,     &grave       &hash_numero   &kp AT        &kp PRCNT     &sqt_dqt    ,
+     &kp PLUS      &kp N1        &kp N2        &kp N3        &fslh_bslh  ,     &grave        &hash_no      &uc SUC_AT    &kp PRCNT     &sqt_dqt    ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp N0        &kp N4        &kp N5        &kp N6        &kp EQUAL   ,     &amps_pipe    &lpar_rpar    &lbrc_rbrc    &lbkt_rbkt    &lt_gt      ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -272,23 +273,23 @@ ZMK_BASE_LAYER(Fk,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &kp F11       &kp F1        &kp F2        &kp F3        &kp WINSCST ,   &kp PSCRN     &kp F15       &kp F14       &kp F13       &kp F23     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp F10       &kp F4        &kp F5        &kp F6        NNN         ,   NNN           &kp F18       &kp F17       &kp F16       &kp F22     ,
+    &kp F10       &kp F4        &kp F5        &kp F6        XXX         ,   XXX           &kp F18       &kp F17       &kp F16       &kp F22     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp F12       &kp F7        &kp F8        &kp F9        NNN         ,   NNN           &kp F21       &kp F20       &kp F19       &kp F24     ,
+    &kp F12       &kp F7        &kp F8        &kp F9        XXX         ,   XXX           &kp F21       &kp F20       &kp F19       &kp F24     ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              NNN           ___         ,   NNN           NNN
+                                              XXX           ___         ,   XXX           XXX
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
 ZMK_BASE_LAYER(Game,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp T         &kp Q         &kp W         &kp E         &kp R       ,   &to EN        NNN           NNN           NNN           NNN         ,
+    &kp T         &kp Q         &kp W         &kp E         &kp R       ,   &to EN        XXX           XXX           XXX           XXX         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LSHFT     &kp A         &kp S         &kp D         &kp F       ,   NNN           NNN           NNN           NNN           NNN         ,
+    &kp LSHFT     &kp A         &kp S         &kp D         &kp F       ,   XXX           XXX           XXX           XXX           XXX         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &kp LCTRL     &kp Z         &kp X         &kp C         &kp V       ,   NNN           NNN           NNN           NNN           NNN         ,
+    &kp LCTRL     &kp Z         &kp X         &kp C         &kp V       ,   XXX           XXX           XXX           XXX           XXX         ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              &mo NAS       _SPACE_ALT_ ,   NNN           NNN
+                                              &mo NAS       _SPACE_ALT_ ,   XXX           XXX
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
