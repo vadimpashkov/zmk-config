@@ -70,7 +70,6 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
 MAKE_HRM(hml_ru, &uc, &uc, KEYS_R THUMBS)
 MAKE_HRM(hmr_ru, &uc, &uc, KEYS_L THUMBS)
-MAKE_HRM(hmr_ru_ye_yo, &uc, &ru_ye_yo, KEYS_L THUMBS)
 
 // Trigger tap-action on all interrupts
 #define MT_CORE                                                                \
