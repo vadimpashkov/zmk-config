@@ -70,6 +70,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
 MAKE_HRM(hml_ru, &uc, &uc, KEYS_R THUMBS)
 MAKE_HRM(hmr_ru, &uc, &uc, KEYS_L THUMBS)
+MAKE_HRM(hmr_ru_ye_yo, &uc, &ru_ye_yo, KEYS_L THUMBS)
 
 // Trigger tap-action on all interrupts
 #define MT_CORE                                                                \
@@ -97,7 +98,7 @@ ZMK_HOLD_TAP(space_alt, bindings = <&kp>, <&kp>; MT_CORE)
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
 #define _HML_RU_KEYS_ &hml_ru LGUI UC_RU_Z &hml_ru LALT UC_RU_V &hml_ru LCTRL UC_RU_N &hml_ru LSHFT UC_RU_T
-#define _HMR_RU_KEYS_ &hmr_ru RSHFT UC_RU_A &hmr_ru RCTRL UC_RU_O &hmr_ru RALT &ru_ye_yo &hmr_ru RGUI UC_RU_S
+#define _HMR_RU_KEYS_ &hmr_ru RSHFT UC_RU_A &hmr_ru RCTRL UC_RU_O &hmr_ru_ye_yo RALT &hmr_ru RGUI UC_RU_S
 
 #define WINSCST (LG(LS(S)))
 
