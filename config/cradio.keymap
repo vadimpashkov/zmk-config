@@ -167,7 +167,7 @@ ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&uc SUC_LBKT 0>, <&uc SUC_RBKT 0>;
 ZMK_TAP_DANCE(lt_gt, bindings = <&kp LT>, <&kp GT>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(dllr_tilde, bindings = <&kp SUC_DLLR 0>, <&kp TILDE>;
+ZMK_TAP_DANCE(dllr_tilde, bindings = <&uc SUC_DLLR 0>, <&kp TILDE>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&uc SUC_CARET 0>;
