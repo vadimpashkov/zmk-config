@@ -80,7 +80,7 @@ MAKE_HRM(hmr_ru, &kp, &uc, KEYS_L THUMBS)
 
 &mt { MT_CORE };
 
-ZMK_HOLD_TAP(space_alt, bindings = <&kp>, <&kp>; MT_CORE)
+ZMK_HOLD_TAP(space_alt, bindings = <&kp SPACE>, <&kp LALT>; MT_CORE)
 
 // HACK: Make HRM combos tap-only
 #define ZMK_COMBO_8(NAME, TAP, POS, LAYERS, COMBO_MS, IDLE_MS, HOLD, SIDE)     \
@@ -119,6 +119,9 @@ ZMK_HOLD_TAP(space_alt, bindings = <&kp>, <&kp>; MT_CORE)
 
 /* Tap Dance */
 
+ZMK_TAP_DANCE(sqt_dqt, bindings = <&kp SQT>, <&kp DQT>;
+              tapping-term-ms = <200>;)
+
 ZMK_TAP_DANCE(comma_semi, bindings = <&kp COMMA>, <&kp SEMI>;
               tapping-term-ms = <200>;)
 
@@ -129,6 +132,12 @@ ZMK_TAP_DANCE(qmark_excl, bindings = <&kp QMARK>, <&kp EXCL>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(divide_bslh, bindings = <&kp KP_DIVIDE>, <&kp BSLH>;
+              tapping-term-ms = <200>;)
+
+ZMK_TAP_DANCE(grave, bindings = <&kp GRAVE>, <&kp GRAVE &kp GRAVE &kp GRAVE>;
+              tapping-term-ms = <200>;)
+
+ZMK_TAP_DANCE(hash_numero, bindings = <&kp HASH>, <&uc 0x2116 0>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(amps_pipe, bindings = <&kp AMPS>, <&kp PIPE>;
@@ -190,7 +199,7 @@ ZMK_CONDITIONAL_LAYER(sys, NAS NAV, SYS) // NAS + NAV --> SYS.
 
 ZMK_BASE_LAYER(En,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &kp Q         &kp W         &kp F         &kp P         &kp B       ,   &kp J         &kp L         &kp U         &kp Y         &kp SQT     ,
+    &kp Q         &kp W         &kp F         &kp P         &kp B       ,   &kp J         &kp L         &kp U         &kp Y         &sqt_dqt    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &hml LGUI A   &hml LALT R   &hml LCTRL S  &hml LSHFT T  &kp G       ,   &kp M         &hmr RSHFT N  &hmr RCTRL E  &hmr RALT I   &hmr RGUI O ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -202,7 +211,7 @@ ZMK_BASE_LAYER(En,
 
 ZMK_BASE_LAYER(Ru,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    &uc UC_RU_BI  &uc UC_RU_K   &uc UC_RU_L   &uc UC_RU_B   &ru_ch_ts   ,   &ru_sh_shch   &ru_u_yu     &uc UC_RU_YA   &uc UC_RU_E   &kp SQT     ,
+    &uc UC_RU_BI  &uc UC_RU_K   &uc UC_RU_L   &uc UC_RU_B   &ru_ch_ts   ,   &ru_sh_shch   &ru_u_yu     &uc UC_RU_YA   &uc UC_RU_E   &sqt_dqt    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &uc UC_RU_Z   &uc UC_RU_V   &uc UC_RU_N   &uc UC_RU_T   &uc UC_RU_D ,   &ru_i_y       &uc UC_RU_A  &uc UC_RU_O    &ru_ye_yo     &uc UC_RU_S ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -238,7 +247,7 @@ ZMK_BASE_LAYER(Mouse,
 
 ZMK_BASE_LAYER(Nas,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-          &kp PLUS      &kp N1        &kp N2        &kp N3       &divide_bslh ,     &kp GRAVE     &kp HASH      &kp AT        &kp PRCNT     &kp SQT     ,
+          &kp PLUS      &kp N1        &kp N2        &kp N3       &divide_bslh ,     &grave        &hash_numero  &kp AT        &kp PRCNT     &sqt_dqt    ,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
           &kp N0        &kp N4        &kp N5        &kp N6       &kp KP_EQUAL ,     &amps_pipe    &lpar_rpar    &lbrc_rbrc    &lbkt_rbkt    &lt_gt      ,
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
@@ -268,7 +277,7 @@ ZMK_BASE_LAYER(Game,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LCTRL     &kp Z         &kp X         &kp C         &kp V       ,   NNN           NNN           NNN           NNN           NNN         ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
-                                              &mo NAS       NNN         ,   NNN           &to EN
+                                              &mo NAS       &space_alt  ,   NNN           &to EN
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
 )
 
