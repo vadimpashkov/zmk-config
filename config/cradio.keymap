@@ -96,8 +96,8 @@ ZMK_HOLD_TAP(space_alt, bindings = <&kp>, <&kp>; MT_CORE)
 
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
-#define _HML_RU_KEYS_ &hml_ru LGUI UC_RU_Z &hml_ru LALT UC_RU_V &hml_ru LCTRL UC_RU_N &hml_ru LSHFT UC_RU_T &uc UC_RU_D
-#define _HMR_RU_KEYS_ &ru_i_y &hmr_ru RSHFT UC_RU_A &hmr_ru RCTRL UC_RU_O &hmr_ru RALT UC_RU_YE &hmr_ru RGUI UC_RU_S
+#define _HML_RU_KEYS_ &hml_ru LGUI UC_RU_Z &hml_ru LALT UC_RU_V &hml_ru LCTRL UC_RU_N &hml_ru LSHFT UC_RU_T
+#define _HMR_RU_KEYS_ &hmr_ru RSHFT UC_RU_A &hmr_ru RCTRL UC_RU_O &hmr_ru RALT UC_RU_YE &hmr_ru RGUI UC_RU_S
 
 #define WINSCST LG(LS(S))
 
@@ -204,7 +204,7 @@ ZMK_BASE_LAYER(Ru,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
     &uc UC_RU_BI  &uc UC_RU_K   &uc UC_RU_L   &uc UC_RU_B   &ru_ch_ts   ,   &ru_sh_shch   &ru_u_yu     &uc UC_RU_YA   &uc UC_RU_E   &kp SQT     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                               _HML_RU_KEYS_                            ,                              _HMR_RU_KEYS_                            ,
+                        _HML_RU_KEYS_                       &uc UC_RU_D ,   &ru_i_y                           _HMR_RU_KEYS_                     ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &ru_kh_zh     &uc UC_RU_P   &uc UC_RU_R   &uc UC_RU_M   &uc UC_RU_G ,   &uc UC_RU_F  &ru_soft_hard  &comma_semi   &dot_colon    &qmark_excl ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
