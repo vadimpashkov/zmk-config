@@ -158,25 +158,25 @@ ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp BUFFER>, <&kp EMOJI>;
 ZMK_TAP_DANCE(space_lt_fk, bindings = <&sl FK>, <&kp SPACE>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ye_yo, bindings = <&uc UC_RU_YE>, <&kp UC_RU_YO>;
+ZMK_TAP_DANCE(ru_ye_yo, bindings = <&uc UC_RU_YE>, <&uc UC_RU_YO>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_kh_zh, bindings = <&uc UC_RU_KH>, <&kp UC_RU_ZH>;
+ZMK_TAP_DANCE(ru_kh_zh, bindings = <&uc UC_RU_KH>, <&uc UC_RU_ZH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ch_ts, bindings = <&uc UC_RU_CH>, <&kp UC_RU_TS>;
+ZMK_TAP_DANCE(ru_ch_ts, bindings = <&uc UC_RU_CH>, <&uc UC_RU_TS>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_soft_hard, bindings = <&uc UC_RU_SOFT>, <&kp UC_RU_HARD>;
+ZMK_TAP_DANCE(ru_soft_hard, bindings = <&uc UC_RU_SOFT>, <&uc UC_RU_HARD>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_i_y, bindings = <&uc UC_RU_I>, <&kp UC_RU_Y>;
+ZMK_TAP_DANCE(ru_i_y, bindings = <&uc UC_RU_I>, <&uc UC_RU_Y>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_sh_shch, bindings = <&uc UC_RU_SH>, <&kp UC_RU_SHCH>;
+ZMK_TAP_DANCE(ru_sh_shch, bindings = <&uc UC_RU_SH>, <&uc UC_RU_SHCH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_u_yu, bindings = <&uc UC_RU_U>, <&kp UC_RU_YU>;
+ZMK_TAP_DANCE(ru_u_yu, bindings = <&uc UC_RU_U>, <&uc UC_RU_YU>;
               tapping-term-ms = <200>;)
 
 /* Keymap */
