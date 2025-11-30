@@ -32,3 +32,5 @@
 #define UC_SB_FSLH        0x002F    0      // /
 #define UC_SB_BSLH        0x005C    0      // (backslash)
 #define UC_SB_PIPE        0x007C    0      // |
+
+#define UC_SB_TILDE       0x007E    0      // ~
