@@ -64,7 +64,7 @@
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
 #define _HML_RU_KEYS_ &hml LGUI RU_Z &hml LALT RU_V &hml LCTRL RU_N &hml LSHFT RU_T
-#define _HMR_RU_KEYS_ &hmr RSHFT RU_A &hmr RCTRL RU_O &hmr LALT &ru_ye_yo &hmr LGUI RU_S
+#define _HMR_RU_KEYS_ &hmr RSHFT RU_A &hmr RCTRL RU_O &ru_ye_yo_alt &hmr LGUI RU_S
 
 #define WINSCST LG(LS(S))
 
@@ -176,7 +176,7 @@ ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&uc UC_SB_CARET>;
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp BUFFER>, <&kp EMOJI>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ye_yo, bindings = <&kp RU_YE>, <&kp RU_YO>;
+ZMK_TAP_DANCE(ru_ye_yo_alt, bindings = <&mt LALT RU_YE>, <&kp RU_YO>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(ru_kh_zh, bindings = <&kp RU_KH>, <&kp RU_ZH>;
