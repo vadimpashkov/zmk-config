@@ -51,40 +51,40 @@
 
 /* Unicode */
 
-ZMK_MACRO(uc_sb_dqt, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N3 &kp KP_N4>, <&macro_release &kp RALT>;)                    // "
-ZMK_MACRO(uc_sb_sqt, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N3 &kp KP_N9>, <&macro_release &kp RALT>;)                    // '
-ZMK_MACRO(uc_sb_grave, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N9 &kp KP_N6>, <&macro_release &kp RALT>;)                  // `
+ZMK_UNICODE_SINGLE(uc_sb_dqt, N0, N0, N3, N4)           // "
+ZMK_UNICODE_SINGLE(uc_sb_sqt, N0, N0, N3, N9)           // '
+ZMK_UNICODE_SINGLE(uc_sb_grave, N0, N0, N9, N6)         // `
 
-ZMK_MACRO(uc_sb_hash, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N3 &kp KP_N5>, <&macro_release &kp RALT>;)                   // #
-ZMK_MACRO(uc_sb_no, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N8 &kp KP_N4 &kp KP_N7 &kp KP_N0>, <&macro_release &kp RALT>;) // №
+ZMK_UNICODE_SINGLE(uc_sb_hash, N0, N0, N3, N5)          // #
+ZMK_UNICODE_SINGLE(uc_sb_no, N8, N4, N7, N0)            // №
 
-ZMK_MACRO(uc_sb_at, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N6 &kp KP_N4>, <&macro_release &kp RALT>;)                     // @
-ZMK_MACRO(uc_sb_dllr, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N3 &kp KP_N6>, <&macro_release &kp RALT>;)                   // $
-ZMK_MACRO(uc_sb_caret, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N9 &kp KP_N4>, <&macro_release &kp RALT>;)                  // ^
+ZMK_UNICODE_SINGLE(uc_sb_at, N0, N0, N6, N4)            // @
+ZMK_UNICODE_SINGLE(uc_sb_dllr, N0, N0, N3, N6)          // $
+ZMK_UNICODE_SINGLE(uc_sb_caret, N0, N0, N9, N4)         // ^
 
-ZMK_MACRO(uc_sb_semi, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N5 &kp KP_N9>, <&macro_release &kp RALT>;)                   // ;
-ZMK_MACRO(uc_sb_colon, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N5 &kp KP_N8>, <&macro_release &kp RALT>;)                  // :
+ZMK_UNICODE_SINGLE(uc_sb_semi, N0, N0, N5, N9)          // ;
+ZMK_UNICODE_SINGLE(uc_sb_colon, N0, N0, N5, N8)         // :
 
-ZMK_MACRO(uc_sb_amps, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N3 &kp KP_N8>, <&macro_release &kp RALT>;)                   // &
-ZMK_MACRO(uc_sb_qmark, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N6 &kp KP_N3>, <&macro_release &kp RALT>;)                  // ?
+ZMK_UNICODE_SINGLE(uc_sb_amps, N0, N0, N3, N8)          // &
+ZMK_UNICODE_SINGLE(uc_sb_qmark, N0, N0, N6, N3)         // ?
 
-ZMK_MACRO(uc_sb_lbkt, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N9 &kp KP_N1>, <&macro_release &kp RALT>;)                   // [
-ZMK_MACRO(uc_sb_rbkt, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N9 &kp KP_N3>, <&macro_release &kp RALT>;)                   // ]
+ZMK_UNICODE_SINGLE(uc_sb_lbkt, N0, N0, N9, N1)          // [
+ZMK_UNICODE_SINGLE(uc_sb_rbkt, N0, N0, N9, N3)          // ]
 
-ZMK_MACRO(uc_sb_lbrc, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N1 &kp KP_N2 &kp KP_N3>, <&macro_release &kp RALT>;)         // {
-ZMK_MACRO(uc_sb_rbrc, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N1 &kp KP_N2 &kp KP_N5>, <&macro_release &kp RALT>;)         // }
+ZMK_UNICODE_SINGLE(uc_sb_lbrc, N0, N1, N2, N3)          // {
+ZMK_UNICODE_SINGLE(uc_sb_rbrc, N0, N1, N2, N5)          // }
 
-ZMK_MACRO(uc_sb_lt, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N6 &kp KP_N0>, <&macro_release &kp RALT>;)                     // <
-ZMK_MACRO(uc_sb_gt, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N6 &kp KP_N2>, <&macro_release &kp RALT>;)                     // >
+ZMK_UNICODE_SINGLE(uc_sb_lt, N0, N0, N6, N0)            // <
+ZMK_UNICODE_SINGLE(uc_sb_gt, N0, N0, N6, N2)            // >
 
-ZMK_MACRO(uc_sb_comma, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N4 &kp KP_N4>, <&macro_release &kp RALT>;)                  // ,
-ZMK_MACRO(uc_sb_dot, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N4 &kp KP_N6>, <&macro_release &kp RALT>;)                    // .
+ZMK_UNICODE_SINGLE(uc_sb_comma, N0, N0, N4, N4)         // ,
+ZMK_UNICODE_SINGLE(uc_sb_dot, N0, N0, N4, N6)           // .
 
-ZMK_MACRO(uc_sb_fslh, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N4 &kp KP_N7>, <&macro_release &kp RALT>;)                   // /
-ZMK_MACRO(uc_sb_bslh, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N9 &kp KP_N2>, <&macro_release &kp RALT>;)                   // (backslash)
-ZMK_MACRO(uc_sb_pipe, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N1 &kp KP_N2 &kp KP_N4>, <&macro_release &kp RALT>;)         // |
+ZMK_UNICODE_SINGLE(uc_sb_fslh, N0, N0, N4, N7)          // /
+ZMK_UNICODE_SINGLE(uc_sb_bslh, N0, N0, N9, N2)          // (backslash)
+ZMK_UNICODE_SINGLE(uc_sb_pipe, N0, N1, N2, N4)          // |
 
-ZMK_MACRO(uc_sb_tilde, bindings = <&macro_press &kp RALT>, <&macro_tap &kp KP_N1 &kp KP_N2 &kp KP_N6>, <&macro_release &kp RALT>;)        // ~
+ZMK_UNICODE_SINGLE(uc_sb_tilde, N0, N1, N2, N6)             // ~
 
 /* Homerow mods */
 // SEE: https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
