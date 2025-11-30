@@ -20,8 +20,15 @@
 #define UC_SB_LBKT        0x005B    0      // [
 #define UC_SB_RBKT        0x005D    0      // ]
 
+#define UC_SB_LBRC        0x007B    0      // {
+#define UC_SB_RBRC        0x007D    0      // }
+
+#define UC_SB_LT          0x003C    0      // <
+#define UC_SB_GT          0x003E    0      // >
+
 #define UC_SB_COMMA       0x002C    0      // ,
 #define UC_SB_DOT         0x002E    0      // .
 
 #define UC_SB_FSLH        0x002F    0      // /
 #define UC_SB_BSLH        0x005C    0      // (backslash)
+#define UC_SB_PIPE        0x007C    0      // |

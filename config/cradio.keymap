@@ -152,19 +152,19 @@ ZMK_TAP_DANCE(grave, bindings = <&uc UC_SB_GRAVE>, <&graves>;
 ZMK_TAP_DANCE(hash_no, bindings = <&uc UC_SB_HASH>, <&uc UC_SB_NO>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(amps_pipe, bindings = <&uc UC_SB_AMPS>, <&kp PIPE>;
+ZMK_TAP_DANCE(amps_pipe, bindings = <&uc UC_SB_AMPS>, <&uc UC_SB_PIPE>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lpar_rpar, bindings = <&kp LPAR>, <&kp RPAR>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(lbrc_rbrc, bindings = <&kp LBRC>, <&kp RBRC>;
+ZMK_TAP_DANCE(lbrc_rbrc, bindings = <&uc UC_SB_LBRC>, <&uc UC_SB_RBRC>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&uc UC_SB_LBKT>, <&uc UC_SB_RBKT>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(lt_gt, bindings = <&kp LT>, <&kp GT>;
+ZMK_TAP_DANCE(lt_gt, bindings = <&uc UC_SB_LT>, <&uc UC_SB_GT>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(dllr_tilde, bindings = <&uc UC_SB_DLLR>, <&kp TILDE>;
