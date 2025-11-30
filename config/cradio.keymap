@@ -7,7 +7,7 @@
 #include <behaviors/unicode.dtsi>
 
 #include "keys_ru.h"
-#include "symbols_unicode.h"
+#include "unicode_symbols.h"
 
 /* Layers */
 
@@ -44,9 +44,9 @@
 };
 
 &uc {
-    default-mode = <UC_MODE_WIN_COMPOSE>;
+    default-mode = <UC_MODE_WIN_ALT>;
     minimum-length = <0>;
-    win-compose-key = <RALT>;
+    win-compose-key = <LALT>;
 };
 
 /* Homerow mods */
@@ -131,28 +131,28 @@ ZMK_MACRO(to_sys_layer, bindings = <&kp SET_EN &to SYS>;)
 
 /* Tap Dance */
 
-ZMK_TAP_DANCE(sqt_dqt, bindings = <&uc SUC_SQT 0>, <&uc SUC_DQT 0>;
+ZMK_TAP_DANCE(sqt_dqt, bindings = <&uc UC_SB_SQT>, <&uc UC_SB_DQT>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(comma_semi, bindings = <&uc SUC_COMMA 0>, <&uc SUC_SEMI 0>;
+ZMK_TAP_DANCE(comma_semi, bindings = <&uc UC_SB_COMMA>, <&uc UC_SB_SEMI>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(dot_colon, bindings = <&uc SUC_DOT 0>, <&uc SUC_COLON 0>;
+ZMK_TAP_DANCE(dot_colon, bindings = <&uc UC_SB_DOT>, <&uc UC_SB_COLON>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(qmark_excl, bindings = <&uc SUC_QMARK 0>, <&kp EXCL>;
+ZMK_TAP_DANCE(qmark_excl, bindings = <&uc UC_SB_QMARK>, <&kp EXCL>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(fslh_bslh, bindings = <&uc SUC_FSLH 0>, <&uc SUC_BSLH 0>;
+ZMK_TAP_DANCE(fslh_bslh, bindings = <&uc UC_SB_FSLH>, <&uc UC_SB_BSLH>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(grave, bindings = <&kp GRAVE>, <&graves>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(hash_no, bindings = <&uc SUC_HASH 0>, <&uc SUC_NO 0>;
+ZMK_TAP_DANCE(hash_no, bindings = <&uc UC_SB_HASH>, <&uc UC_SB_NO>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(amps_pipe, bindings = <&uc SUC_AMPS 0>, <&kp PIPE>;
+ZMK_TAP_DANCE(amps_pipe, bindings = <&uc UC_SB_AMPS>, <&kp PIPE>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lpar_rpar, bindings = <&kp LPAR>, <&kp RPAR>;
@@ -161,16 +161,16 @@ ZMK_TAP_DANCE(lpar_rpar, bindings = <&kp LPAR>, <&kp RPAR>;
 ZMK_TAP_DANCE(lbrc_rbrc, bindings = <&kp LBRC>, <&kp RBRC>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&uc SUC_LBKT 0>, <&uc SUC_RBKT 0>;
+ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&uc UC_SB_LBKT>, <&uc UC_SB_RBKT>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lt_gt, bindings = <&kp LT>, <&kp GT>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(dllr_tilde, bindings = <&uc SUC_DLLR 0>, <&kp TILDE>;
+ZMK_TAP_DANCE(dllr_tilde, bindings = <&uc UC_SB_DLLR>, <&kp TILDE>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&uc SUC_CARET 0>;
+ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&uc UC_SB_CARET>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp BUFFER>, <&kp EMOJI>;
@@ -254,7 +254,7 @@ ZMK_BASE_LAYER(Mouse,
 
 ZMK_BASE_LAYER(Nas,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &kp PLUS      &kp N1        &kp N2        &kp N3        &fslh_bslh  ,     &grave        &hash_no      &uc SUC_AT 0  &kp PRCNT     &sqt_dqt    ,
+     &kp PLUS      &kp N1        &kp N2        &kp N3        &fslh_bslh  ,     &grave        &hash_no      &uc UC_SB_AT  &kp PRCNT     &sqt_dqt    ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp N0        &kp N4        &kp N5        &kp N6        &kp EQUAL   ,     &amps_pipe    &lpar_rpar    &lbrc_rbrc    &lbkt_rbkt    &lt_gt      ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
