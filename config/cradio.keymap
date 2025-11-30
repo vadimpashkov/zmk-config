@@ -51,40 +51,40 @@
 
 /* Unicode */
 
-ZMK_UNICODE_SINGLE(uc_sb_dqt, N0, N0, N3, N4)           // "
-ZMK_UNICODE_SINGLE(uc_sb_sqt, N0, N0, N3, N9)           // '
-ZMK_UNICODE_SINGLE(uc_sb_grave, N0, N0, N9, N6)         // `
+ZMK_UNICODE_SINGLE(uc_sb_dqt, N3, N4)           // "
+ZMK_UNICODE_SINGLE(uc_sb_sqt, N3, N9)           // '
+ZMK_UNICODE_SINGLE(uc_sb_grave, N9, N6)         // `
 
-ZMK_UNICODE_SINGLE(uc_sb_hash, N0, N0, N3, N5)          // #
-ZMK_UNICODE_SINGLE(uc_sb_no, N8, N4, N7, N0)            // №
+ZMK_UNICODE_SINGLE(uc_sb_hash, N3, N5)          // #
+ZMK_UNICODE_SINGLE(uc_sb_no, N8, N4, N7, N0)    // №
 
-ZMK_UNICODE_SINGLE(uc_sb_at, N0, N0, N6, N4)            // @
-ZMK_UNICODE_SINGLE(uc_sb_dllr, N0, N0, N3, N6)          // $
-ZMK_UNICODE_SINGLE(uc_sb_caret, N0, N0, N9, N4)         // ^
+ZMK_UNICODE_SINGLE(uc_sb_at, N6, N4)            // @
+ZMK_UNICODE_SINGLE(uc_sb_dllr, N3, N6)          // $
+ZMK_UNICODE_SINGLE(uc_sb_caret, N9, N4)         // ^
 
-ZMK_UNICODE_SINGLE(uc_sb_semi, N0, N0, N5, N9)          // ;
-ZMK_UNICODE_SINGLE(uc_sb_colon, N0, N0, N5, N8)         // :
+ZMK_UNICODE_SINGLE(uc_sb_semi, N5, N9)          // ;
+ZMK_UNICODE_SINGLE(uc_sb_colon, N5, N8)         // :
 
-ZMK_UNICODE_SINGLE(uc_sb_amps, N0, N0, N3, N8)          // &
-ZMK_UNICODE_SINGLE(uc_sb_qmark, N0, N0, N6, N3)         // ?
+ZMK_UNICODE_SINGLE(uc_sb_amps, N3, N8)          // &
+ZMK_UNICODE_SINGLE(uc_sb_qmark, N6, N3)         // ?
 
-ZMK_UNICODE_SINGLE(uc_sb_lbkt, N0, N0, N9, N1)          // [
-ZMK_UNICODE_SINGLE(uc_sb_rbkt, N0, N0, N9, N3)          // ]
+ZMK_UNICODE_SINGLE(uc_sb_lbkt, N9, N1)          // [
+ZMK_UNICODE_SINGLE(uc_sb_rbkt, N9, N3)          // ]
 
-ZMK_UNICODE_SINGLE(uc_sb_lbrc, N0, N1, N2, N3)          // {
-ZMK_UNICODE_SINGLE(uc_sb_rbrc, N0, N1, N2, N5)          // }
+ZMK_UNICODE_SINGLE(uc_sb_lbrc, N1, N2, N3)      // {
+ZMK_UNICODE_SINGLE(uc_sb_rbrc, N1, N2, N5)      // }
 
-ZMK_UNICODE_SINGLE(uc_sb_lt, N0, N0, N6, N0)            // <
-ZMK_UNICODE_SINGLE(uc_sb_gt, N0, N0, N6, N2)            // >
+ZMK_UNICODE_SINGLE(uc_sb_lt, N6, N0)            // <
+ZMK_UNICODE_SINGLE(uc_sb_gt, N6, N2)            // >
 
-ZMK_UNICODE_SINGLE(uc_sb_comma, N0, N0, N4, N4)         // ,
-ZMK_UNICODE_SINGLE(uc_sb_dot, N0, N0, N4, N6)           // .
+ZMK_UNICODE_SINGLE(uc_sb_comma, N4, N4)         // ,
+ZMK_UNICODE_SINGLE(uc_sb_dot, N4, N6)           // .
 
-ZMK_UNICODE_SINGLE(uc_sb_fslh, N0, N0, N4, N7)          // /
-ZMK_UNICODE_SINGLE(uc_sb_bslh, N0, N0, N9, N2)          // (backslash)
-ZMK_UNICODE_SINGLE(uc_sb_pipe, N0, N1, N2, N4)          // |
+ZMK_UNICODE_SINGLE(uc_sb_fslh, N4, N7)          // /
+ZMK_UNICODE_SINGLE(uc_sb_bslh, N9, N2)          // (backslash)
+ZMK_UNICODE_SINGLE(uc_sb_pipe, N1, N2, N4)      // |
 
-ZMK_UNICODE_SINGLE(uc_sb_tilde, N0, N1, N2, N6)             // ~
+ZMK_UNICODE_SINGLE(uc_sb_tilde, N1, N2, N6)     // ~
 
 /* Homerow mods */
 // SEE: https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
