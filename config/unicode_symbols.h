@@ -2,6 +2,7 @@
 
 #define UC_SB_DQT         0x0022    0      // "
 #define UC_SB_SQT         0x0027    0      // '
+#define UC_SB_GRAVE       0x0060    0      // `
 
 #define UC_SB_HASH        0x0023    0      // #
 #define UC_SB_NO          0x2116    0      // №
