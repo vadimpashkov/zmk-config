@@ -49,6 +49,43 @@
     win-compose-key = <LALT>;
 };
 
+/* Unicode */
+
+ZMK_UNICODE_SINGLE(uc_sb_dqt, N3, N4)           // "
+ZMK_UNICODE_SINGLE(uc_sb_sqt, N3, N9)           // '
+ZMK_UNICODE_SINGLE(uc_sb_grave, N9, N6)         // `
+
+ZMK_UNICODE_SINGLE(uc_sb_hash, N3, N5)          // #
+ZMK_UNICODE_SINGLE(uc_sb_no, N8, N4, N7, N0)    // №
+
+ZMK_UNICODE_SINGLE(uc_sb_at, N6, N4)            // @
+ZMK_UNICODE_SINGLE(uc_sb_dllr, N3, N6)          // $
+ZMK_UNICODE_SINGLE(uc_sb_caret, N9, N4)         // ^
+
+ZMK_UNICODE_SINGLE(uc_sb_semi, N5, N9)          // ;
+ZMK_UNICODE_SINGLE(uc_sb_colon, N5, N8)         // :
+
+ZMK_UNICODE_SINGLE(uc_sb_amps, N3, N8)          // &
+ZMK_UNICODE_SINGLE(uc_sb_qmark, N6, N3)         // ?
+
+ZMK_UNICODE_SINGLE(uc_sb_lbkt, N9, N1)          // [
+ZMK_UNICODE_SINGLE(uc_sb_rbkt, N9, N3)          // ]
+
+ZMK_UNICODE_SINGLE(uc_sb_lbrc, N1, N2, N3)      // {
+ZMK_UNICODE_SINGLE(uc_sb_rbrc, N1, N2, N5)      // }
+
+ZMK_UNICODE_SINGLE(uc_sb_lt, N6, N0)            // <
+ZMK_UNICODE_SINGLE(uc_sb_gt, N6, N2)            // >
+
+ZMK_UNICODE_SINGLE(uc_sb_comma, N4, N4)         // ,
+ZMK_UNICODE_SINGLE(uc_sb_dot, N4, N6)           // .
+
+ZMK_UNICODE_SINGLE(uc_sb_fslh, N4, N7)          // /
+ZMK_UNICODE_SINGLE(uc_sb_bslh, N9, N2)          // (backslash)
+ZMK_UNICODE_SINGLE(uc_sb_pipe, N1, N2, N4)      // |
+
+ZMK_UNICODE_SINGLE(uc_sb_tilde, N1, N2, N6)     // ~
+
 /* Homerow mods */
 // SEE: https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 
@@ -113,7 +150,7 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
 ZMK_HOLD_TAP(sl_kp, bindings = <&sl>, <&kp>; MT_CORE)
 
-ZMK_MACRO(graves, bindings = <&uc UC_SB_GRAVE &uc UC_SB_GRAVE &uc UC_SB_GRAVE>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(graves, bindings = <&uc_sb_grave &uc_sb_grave &uc_sb_grave>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(to_en_layer, bindings = <&kp SET_EN &to EN>;)
 ZMK_MACRO(to_ru_layer, bindings = <&kp SET_RU &to RU>;)
 ZMK_MACRO(to_game_layer, bindings = <&kp SET_EN &to GAME>;)
@@ -131,46 +168,46 @@ ZMK_MACRO(to_sys_layer, bindings = <&kp SET_EN &to SYS>;)
 
 /* Tap Dance */
 
-ZMK_TAP_DANCE(sqt_dqt, bindings = <&uc UC_SB_SQT>, <&uc UC_SB_DQT>;
+ZMK_TAP_DANCE(sqt_dqt, bindings = <&uc_sb_sqt>, <&uc_sb_dqt>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(comma_semi, bindings = <&uc UC_SB_COMMA>, <&uc UC_SB_SEMI>;
+ZMK_TAP_DANCE(comma_semi, bindings = <&uc_sb_comma>, <&uc_sb_semi>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(dot_colon, bindings = <&uc UC_SB_DOT>, <&uc UC_SB_COLON>;
+ZMK_TAP_DANCE(dot_colon, bindings = <&uc_sb_dot>, <&uc_sb_colon>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(qmark_excl, bindings = <&uc UC_SB_QMARK>, <&kp EXCL>;
+ZMK_TAP_DANCE(qmark_excl, bindings = <&uc_sb_qmark>, <&kp EXCL>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(fslh_bslh, bindings = <&uc UC_SB_FSLH>, <&uc UC_SB_BSLH>;
+ZMK_TAP_DANCE(fslh_bslh, bindings = <&uc_sb_fslh>, <&uc_sb_bslh>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(grave, bindings = <&uc UC_SB_GRAVE>, <&graves>;
+ZMK_TAP_DANCE(grave, bindings = <&uc_sb_grave>, <&graves>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(hash_no, bindings = <&uc UC_SB_HASH>, <&uc UC_SB_NO>;
+ZMK_TAP_DANCE(hash_no, bindings = <&uc_sb_hash>, <&uc_sb_no>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(amps_pipe, bindings = <&uc UC_SB_AMPS>, <&uc UC_SB_PIPE>;
+ZMK_TAP_DANCE(amps_pipe, bindings = <&uc_sb_amps>, <&uc_sb_pipe>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lpar_rpar, bindings = <&kp LPAR>, <&kp RPAR>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(lbrc_rbrc, bindings = <&uc UC_SB_LBRC>, <&uc UC_SB_RBRC>;
+ZMK_TAP_DANCE(lbrc_rbrc, bindings = <&uc_sb_lbrc>, <&uc_sb_rbrc>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&uc UC_SB_LBKT>, <&uc UC_SB_RBKT>;
+ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&uc_sb_lbkt>, <&uc_sb_rbkt>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(lt_gt, bindings = <&uc UC_SB_LT>, <&uc UC_SB_GT>;
+ZMK_TAP_DANCE(lt_gt, bindings = <&uc_sb_lt>, <&uc_sb_gt>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(dllr_tilde, bindings = <&uc UC_SB_DLLR>, <&uc UC_SB_TILDE>;
+ZMK_TAP_DANCE(dllr_tilde, bindings = <&uc_sb_dllr>, <&uc_sb_tilde>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&uc UC_SB_CARET>;
+ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&uc_sb_caret>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp BUFFER>, <&kp EMOJI>;
@@ -254,7 +291,7 @@ ZMK_BASE_LAYER(Mouse,
 
 ZMK_BASE_LAYER(Nas,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &kp PLUS      &kp N1        &kp N2        &kp N3        &fslh_bslh  ,     &grave        &hash_no      &uc UC_SB_AT  &kp PRCNT     &sqt_dqt    ,
+     &kp PLUS      &kp N1        &kp N2        &kp N3        &fslh_bslh  ,     &grave        &hash_no      &uc_sb_at  &kp PRCNT     &sqt_dqt    ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
      &kp N0        &kp N4        &kp N5        &kp N6        &kp EQUAL   ,     &amps_pipe    &lpar_rpar    &lbrc_rbrc    &lbkt_rbkt    &lt_gt      ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
