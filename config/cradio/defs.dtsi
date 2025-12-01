@@ -4,11 +4,11 @@
 
 #define EN 0
 #define RU 1
-#define NAV 2
-#define MOUSE 3
-#define NAS 4
-#define FK 5
-#define GAME 6
+#define GAME 2
+#define NAV 3
+#define MOUSE 4
+#define NAS 5
+#define FK 6
 
 #ifndef ZMK_BASE_LAYER
     #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
