@@ -1,0 +1,10 @@
+/ {
+    behaviors {
+        mouse_smart: mouse_smart {
+            compatible = "zmk,behavior-auto-layer";
+            #binding-cells = <1>;
+            continue-list = <PG_UP MOVE_UP PG_DN SCRL_LEFT MOVE_LEFT MOVE_DOWN MOVE_RIGHT SCRL_RIGHT RCLK MCLK LCLK SCRL_UP SCRL_DOWN>;
+            ignore-numbers;
+        };
+    };
+};

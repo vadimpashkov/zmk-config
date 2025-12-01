@@ -13,6 +13,7 @@
 #include "cradio/combos.dtsi"
 #include "cradio/leader.dtsi"
 #include "cradio/mouse.dtsi"
+#include "cradio/auto-layers.dtsi"
 #include "cradio/layer-bindings.dtsi"
 
 ZMK_BASE_LAYER(En,
@@ -57,7 +58,7 @@ ZMK_BASE_LAYER(Nav,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
    &kp LS(TAB)    &kp LEFT      &kp DOWN      &kp RIGHT     &kp TAB     ,   XXX           &kp RSHFT     &kp RCTRL     &kp LALT      &kp LGUI    ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    &tog MOUSE    &kp LC(C)     &kp LC(S)     &kp LC(V)     &kp LC(Z)   ,   XXX           XXX           XXX           XXX           XXX         ,
+    ST_M          &kp LC(C)     &kp LC(S)     &kp LC(V)     &kp LC(Z)   ,   XXX           XXX           XXX           XXX           XXX         ,
 //╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                              &kp LC(LEFT) &kp LC(RIGHT) ,   &kp ENTER     ___
 //                                          ╰─────────────┴─────────────╯ ╰─────────────┴─────────────╯
