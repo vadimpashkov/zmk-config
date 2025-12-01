@@ -49,3 +49,7 @@
 &mt {
     MT_CORE
 };
+
+&mo {
+    MT_CORE
+};
