@@ -68,9 +68,6 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
-MAKE_HRM(hml_ru, &kp, &uc, KEYS_R THUMBS)
-MAKE_HRM(hmr_ru, &kp, &uc, KEYS_L THUMBS)
-
 // Trigger tap-action on all interrupts
 #define MT_CORE                                                                \
   flavor = "tap-preferred";                                                    \
@@ -100,8 +97,8 @@ ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
 
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
-#define _HML_RU_KEYS_ &hml_ru LGUI &ru_z_macro &hml_ru LALT &ru_v_macro &hml_ru LCTRL &ru_n_macro &hml_ru LSHFT &ru_t_macro
-#define _HMR_RU_KEYS_ &hmr_ru RSHFT &ru_a_macro &hmr_ru RCTRL &ru_o_macro &ru_ye_yo_alt &hmr_ru LGUI &ru_s_macro
+#define _HML_RU_KEYS_ &hml LGUI &ru_z_macro &hml LALT &ru_v_macro &hml LCTRL &ru_n_macro &hml LSHFT &ru_t_macro
+#define _HMR_RU_KEYS_ &hmr RSHFT &ru_a_macro &hmr RCTRL &ru_o_macro &ru_ye_yo_alt &hmr LGUI &ru_s_macro
 
 #define WINSCST LG(LS(S))
 
