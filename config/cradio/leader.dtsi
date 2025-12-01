@@ -24,5 +24,3 @@ ZMK_LEADER_SEQUENCE(boot, &bootloader, G T S R A)
 ZMK_LEADER_SEQUENCE(boot, &bootloader, M N E I O)
 
 ZMK_LEADER_SEQUENCE(reset, &sys_reset, R E S E T)
-
-ZMK_LEADER_SEQUENCE(reset, &kp Z, A A A) // Test sequence
