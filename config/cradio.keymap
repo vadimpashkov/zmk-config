@@ -68,8 +68,8 @@
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
 
-MAKE_HRM(hml_ru, &kp, &uc, KEYS_R THUMBS)
-MAKE_HRM(hmr_ru, &kp, &uc, KEYS_L THUMBS)
+MAKE_HRM(hml_ru, &kp, &macro, KEYS_R THUMBS)
+MAKE_HRM(hmr_ru, &kp, &macro, KEYS_L THUMBS)
 
 // Trigger tap-action on all interrupts
 #define MT_CORE                                                                \
@@ -93,7 +93,7 @@ ZMK_MACRO(ru_t_macro, bindings = <&uc UC_RU_T>;)
 
 ZMK_MACRO(ru_a_macro, bindings = <&uc UC_RU_A>;)
 ZMK_MACRO(ru_o_macro, bindings = <&uc UC_RU_O>;)
-ZMK_MACRO(ru_ye_macro, bindings = <&uc UC_RU_YE>;)
+ZMK_MACRO(ru_ye_macro, bindings = <&ru_ye_yo>;)
 ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
 
 /* Misc aliases */
@@ -101,7 +101,7 @@ ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
 #define _HML_RU_KEYS_ &hml_ru LGUI &ru_z_macro &hml_ru LALT &ru_v_macro &hml_ru LCTRL &ru_n_macro &hml_ru LSHFT &ru_t_macro
-#define _HMR_RU_KEYS_ &hmr_ru RSHFT &ru_a_macro &hmr_ru RCTRL &ru_o_macro &ru_ye_yo_alt &hmr_ru LGUI &ru_s_macro
+#define _HMR_RU_KEYS_ &hmr_ru RSHFT &ru_a_macro &hmr_ru RCTRL &ru_o_macro &hmr_ru LALT &ru_ye_macro &hmr_ru LGUI &ru_s_macro
 
 #define WINSCST LG(LS(S))
 
@@ -165,7 +165,7 @@ ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&kp CARET>;
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp LG(V)>, <&kp LG(DOT)>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ye_yo_alt, bindings = <&mt LALT &ru_ye_macro>, <&uc UC_RU_YO>;
+ZMK_TAP_DANCE(ru_ye_yo, bindings = <&uc UC_RU_YE>, <&uc UC_RU_YO>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(ru_kh_zh, bindings = <&uc UC_RU_KH>, <&uc UC_RU_ZH>;
