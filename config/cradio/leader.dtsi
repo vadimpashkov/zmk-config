@@ -1,0 +1,28 @@
+#undef ZMK_LEADER_SEQUENCE
+#define ZMK_LEADER_SEQUENCE(name, leader_bindings, leader_sequence) \
+    / { \
+        behaviors { \
+            leader: leader { \
+                compatible = "zmk,behavior-leader-key"; \
+                #binding-cells = <0>; \
+                ignore-keys = <LSHFT RSHFT>; \
+                leader_sequence_ ## name { \
+                    bindings = <leader_bindings>; \
+                    sequence = <leader_sequence>; \
+                }; \
+            }; \
+        }; \
+    };
+
+ZMK_LEADER_SEQUENCE(bt_0, &bt BT_SEL 0, B T N0)
+ZMK_LEADER_SEQUENCE(bt_1, &bt BT_SEL 1, B T N1)
+ZMK_LEADER_SEQUENCE(bt_clear, &bt BT_CLR, C L E A R)
+
+ZMK_LEADER_SEQUENCE(to_game, &to GAME, G A M E)
+
+ZMK_LEADER_SEQUENCE(boot, &bootloader, G T S R A)
+ZMK_LEADER_SEQUENCE(boot, &bootloader, M N E I O)
+
+ZMK_LEADER_SEQUENCE(reset, &sys_reset, R E S E T)
+
+ZMK_LEADER_SEQUENCE(reset, &kp Z, A A A) // Test sequence

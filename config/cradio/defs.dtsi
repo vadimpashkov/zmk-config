@@ -9,7 +9,6 @@
 #define NAS 4
 #define FK 5
 #define GAME 6
-#define SYS 7
 
 #ifndef ZMK_BASE_LAYER
     #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
