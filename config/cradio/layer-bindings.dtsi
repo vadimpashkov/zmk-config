@@ -1,0 +1,14 @@
+#include <dt-bindings/zmk/bt.h>
+
+#define XXX &none
+#define ___ &trans
+
+#define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
+
+#define _HML_RU_KEYS_ &hml_ru LGUI &ru_z_macro &hml_ru LALT &ru_v_macro &hml_ru LCTRL &ru_n_macro &hml_ru LSHFT &ru_t_macro
+#define _HMR_RU_KEYS_ &hmr_ru RSHFT &ru_a_macro &hmr_ru RCTRL &ru_o_macro &hmr_ru LALT &ru_ye_macro &hmr_ru LGUI &ru_s_macro
+
+#define WINSCST LG(LS(S))
+
+#define _SPACE_ALT_ &hml LALT SPACE
+#define _SPACE_SL_FK_ &sl_kp FK SPACE
