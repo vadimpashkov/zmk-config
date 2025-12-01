@@ -86,14 +86,22 @@ ZMK_HOLD_TAP(sl_kp, bindings = <&sl>, <&kp>; MT_CORE)
 
 ZMK_MACRO(graves, bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;)
 
+ZMK_MACRO(ru_z_macro, bindings = <&uc UC_RU_Z>;)
+ZMK_MACRO(ru_v_macro, bindings = <&uc UC_RU_V>;)
+ZMK_MACRO(ru_n_macro, bindings = <&uc UC_RU_N>;)
+ZMK_MACRO(ru_t_macro, bindings = <&uc UC_RU_T>;)
+
+ZMK_MACRO(ru_a_macro, bindings = <&uc UC_RU_A>;)
+ZMK_MACRO(ru_o_macro, bindings = <&uc UC_RU_O>;)
 ZMK_MACRO(ru_ye_macro, bindings = <&uc UC_RU_YE>;)
+ZMK_MACRO(ru_s_macro, bindings = <&uc UC_RU_S>;)
 
 /* Misc aliases */
 
 #define _BT_SEL_KEYS_ &bt BT_SEL 0 &bt BT_SEL 1 &none &none &bt BT_CLR
 
-#define _HML_RU_KEYS_ &hml_ru LGUI UC_RU_Z &hml_ru LALT UC_RU_V &hml_ru LCTRL UC_RU_N &hml_ru LSHFT UC_RU_T
-#define _HMR_RU_KEYS_ &hmr_ru RSHFT UC_RU_A &hmr_ru RCTRL UC_RU_O &ru_ye_yo_alt &hmr_ru LGUI UC_RU_S
+#define _HML_RU_KEYS_ &hml_ru LGUI &ru_z_macro &hml_ru LALT &ru_v_macro &hml_ru LCTRL &ru_n_macro &hml_ru LSHFT &ru_t_macro
+#define _HMR_RU_KEYS_ &hmr_ru RSHFT &ru_a_macro &hmr_ru RCTRL &ru_o_macro &ru_ye_yo_alt &hmr_ru LGUI &ru_s_macro
 
 #define WINSCST LG(LS(S))
 
