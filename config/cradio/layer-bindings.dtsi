@@ -6,7 +6,6 @@
 
 #define WINSCST LG(LS(S))
 
-#define _SPACE_ALT_ &ht LALT SPACE
 #define _SPACE_SL_FK_ &sl_kp FK SPACE
 
 #define ST_M &mouse_smart MOUSE
