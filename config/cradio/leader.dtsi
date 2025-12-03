@@ -18,9 +18,5 @@ ZMK_LEADER_SEQUENCE(bt_0, &bt BT_SEL 0, B T N0)
 ZMK_LEADER_SEQUENCE(bt_1, &bt BT_SEL 1, B T N1)
 ZMK_LEADER_SEQUENCE(bt_clear, &bt BT_CLR, C L E A R)
 
-ZMK_LEADER_SEQUENCE(to_game, &to GAME, G A M E)
-
 ZMK_LEADER_SEQUENCE(boot_left, &bootloader, G T S R A)
 ZMK_LEADER_SEQUENCE(boot_right, &bootloader, M N E I O)
-
-ZMK_LEADER_SEQUENCE(reset, &sys_reset, R E S E T)
