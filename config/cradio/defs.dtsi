@@ -22,16 +22,16 @@
 
 // REMARK: Trigger tap-action on all interrupts
 #define MT_CORE                                                                \
-  flavor = "tap-preferred";                                                    \
-  tapping-term-ms = <220>;                                                     \
-  quick-tap-ms = <220>;                                                        \
-  hold-trigger-key-positions = <0>;
+    flavor = "tap-preferred";                                                    \
+    tapping-term-ms = <220>;                                                     \
+    quick-tap-ms = <220>;                                                        \
+    hold-trigger-key-positions = <0>;
 
 #define MT_GAME \
-  flavor = "balanced"; \
-  tapping-term-ms = <150>; \
-  quick-tap-ms = <0>; \
-  hold-trigger-key-positions = <0>;
+    flavor = "tap-unless-interrupted"; \
+    tapping-term-ms = <200>; \
+    quick-tap-ms = <150>; \
+    retro-tap; \
 
 &sk {
     release-after-ms = <900>;
