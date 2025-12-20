@@ -6,10 +6,12 @@
 #define RU 1
 #define G_A 2
 #define G_B 3
-#define NAV 4
-#define MOUSE 5
-#define NAS 6
-#define FK 7
+#define D_A 4
+#define D_B 5
+#define NAV 6
+#define MOUSE 7
+#define NAS 8
+#define FK 9
 
 #ifndef ZMK_BASE_LAYER
     #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
