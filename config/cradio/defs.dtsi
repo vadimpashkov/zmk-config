@@ -27,6 +27,12 @@
   quick-tap-ms = <220>;                                                        \
   hold-trigger-key-positions = <0>;
 
+#define MT_GAME \
+  flavor = "balanced"; \
+  tapping-term-ms = <150>; \
+  quick-tap-ms = <0>; \
+  hold-trigger-key-positions = <0>;
+
 &sk {
     release-after-ms = <900>;
     quick-release;
