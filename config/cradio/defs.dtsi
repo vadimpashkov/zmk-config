@@ -27,12 +27,6 @@
     quick-tap-ms = <220>;                                                        \
     hold-trigger-key-positions = <0>;
 
-#define MT_GAME \
-    flavor = "tap-unless-interrupted"; \
-    tapping-term-ms = <200>; \
-    quick-tap-ms = <150>; \
-    retro-tap; \
-
 &sk {
     release-after-ms = <900>;
     quick-release;
