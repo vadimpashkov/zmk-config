@@ -128,11 +128,11 @@ ZMK_BASE_LAYER(Nas,
 
 ZMK_BASE_LAYER(Nas_Ru,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-     &kp PLUS      &kp N1        &kp N2        &kp N3      &ru_fslh_bslh ,     &grave        &kp RU_NO     &kp AT        &kp PRCNT     &kp RU_DQT  ,
+     &kp PLUS      &kp N1        &kp N2        &kp N3      &ru_fslh_bslh ,     XXX           &kp RU_NO     &kp AT        &kp PRCNT     &kp RU_DQT  ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp N0        &kp N4        &kp N5        &kp N6        &kp EQUAL   ,     &amps_pipe    &lpar_rpar    &lbrc_rbrc    &lbkt_rbkt    &lt_gt      ,
+     &kp N0        &kp N4        &kp N5        &kp N6        &kp EQUAL   ,     XXX           &lpar_rpar    XXX           XXX           XXX         ,
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-     &kp STAR      &kp N7        &kp N8        &kp N9        &kp MINUS   ,     &kp TILDE2    &kp UNDER     &ru_ca_si     &ru_dt_cn     &ru_qk_el   ,
+     &kp STAR      &kp N7        &kp N8        &kp N9        &kp MINUS   ,     XXX           &kp UNDER     &ru_ca_si     &ru_dt_cn     &ru_qk_el   ,
 // ╰─────────────┴─────────────┴─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┴─────────────┴─────────────╯
                                                &to_ru_layer  &kp SPACE   ,     &kp ENTER     &key_repeat
 //                                           ╰─────────────┴─────────────╯   ╰─────────────┴─────────────╯
