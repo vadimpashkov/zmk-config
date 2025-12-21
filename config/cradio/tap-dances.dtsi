@@ -40,7 +40,7 @@ ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&kp CARET>;
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp LG(V)>, <&kp LG(DOT)>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ye_yo, bindings = <&kp RU_YE>, <&kp RU_YO>;
+ZMK_TAP_DANCE(ru_ye_yo_alt, bindings = <&mt LALT RU_YE>, <&kp RU_YO>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(ru_kh_zh, bindings = <&kp RU_KH>, <&kp RU_ZH>;

@@ -1,5 +1,4 @@
 ZMK_MACRO(graves, bindings = <&kp GRAVE &kp GRAVE &kp GRAVE>;)
-ZMK_MACRO(ru_ye_yo_macro, bindings = <&uc UC_RU_T>;)
 
 ZMK_MACRO(to_en_layer, bindings = <&kp SET_EN &to EN>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(to_ru_layer, bindings = <&kp SET_RU &to RU>; wait-ms = <0>; tap-ms = <5>;)
