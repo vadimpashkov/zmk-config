@@ -11,7 +11,11 @@
 #define NAV 6
 #define MOUSE 7
 #define NAS 8
-#define FK 9
+#define NAS_RU 9
+#define FK 10
+
+#define SET_EN LA(LS(N1))
+#define SET_RU LA(LS(N2))
 
 #ifndef ZMK_BASE_LAYER
     #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
@@ -41,12 +45,6 @@
     flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <QUICK_TAP_MS>;
-};
-
-&uc {
-    default-mode = <UC_MODE_WIN_COMPOSE>;
-    minimum-length = <0>;
-    win-compose-key = <RALT>;
 };
 
 &mt {

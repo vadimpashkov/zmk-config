@@ -16,9 +16,6 @@ ZMK_TAP_DANCE(fslh_bslh, bindings = <&kp FSLH>, <&kp BSLH>;
 ZMK_TAP_DANCE(grave, bindings = <&kp GRAVE>, <&graves>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(hash_no, bindings = <&kp HASH>, <&uc 0x2116 0>;
-              tapping-term-ms = <200>;)
-
 ZMK_TAP_DANCE(amps_pipe, bindings = <&kp AMPS>, <&kp PIPE>;
               tapping-term-ms = <200>;)
 
@@ -43,23 +40,23 @@ ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&kp CARET>;
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp LG(V)>, <&kp LG(DOT)>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ye_yo, bindings = <&uc UC_RU_YE>, <&uc UC_RU_YO>;
+ZMK_TAP_DANCE(ru_ye_yo, bindings = <&kp RU_YE>, <&kp RU_YO>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_kh_zh, bindings = <&uc UC_RU_KH>, <&uc UC_RU_ZH>;
+ZMK_TAP_DANCE(ru_kh_zh, bindings = <&kp RU_KH>, <&kp RU_ZH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_ch_ts, bindings = <&uc UC_RU_CH>, <&uc UC_RU_TS>;
+ZMK_TAP_DANCE(ru_ch_ts, bindings = <&kp RU_CH>, <&kp RU_TS>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_soft_hard, bindings = <&uc UC_RU_SOFT>, <&uc UC_RU_HARD>;
+ZMK_TAP_DANCE(ru_soft_hard, bindings = <&kp RU_SOFT>, <&kp RU_HARD>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_i_y, bindings = <&uc UC_RU_I>, <&uc UC_RU_Y>;
+ZMK_TAP_DANCE(ru_i_y, bindings = <&kp RU_I>, <&kp RU_Y>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_sh_shch, bindings = <&uc UC_RU_SH>, <&uc UC_RU_SHCH>;
+ZMK_TAP_DANCE(ru_sh_shch, bindings = <&kp RU_SH>, <&kp RU_SHCH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_u_yu, bindings = <&uc UC_RU_U>, <&uc UC_RU_YU>;
+ZMK_TAP_DANCE(ru_u_yu, bindings = <&kp RU_U>, <&kp RU_YU>;
               tapping-term-ms = <200>;)

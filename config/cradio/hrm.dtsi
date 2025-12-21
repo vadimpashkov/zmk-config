@@ -19,6 +19,3 @@
 
 MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)
 MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)
-
-MAKE_HRM(hml_ru, &kp, &uc, KEYS_R THUMBS)
-MAKE_HRM(hmr_ru, &kp, &uc, KEYS_L THUMBS)
