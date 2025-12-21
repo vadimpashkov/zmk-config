@@ -5,6 +5,8 @@
 #include <zmk-helpers/helper.h>
 #include <zmk-helpers/key-labels/34.h>
 
+#include "keys_ru.h"
+
 #include "cradio/defs.dtsi"
 #include "cradio/hrm.dtsi"
 #include "cradio/tap-dances.dtsi"
