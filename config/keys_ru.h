@@ -78,6 +78,7 @@
  */
 
 // Row 1
+#define RU_DQT      LS(N2)          // "
 #define RU_NO       LS(N3)          // №
 #define RU_SEMI     LS(N4)          // ;
 #define RU_COLON    LS(N6)          // :

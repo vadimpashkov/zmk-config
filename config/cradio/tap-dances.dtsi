@@ -64,9 +64,6 @@ ZMK_TAP_DANCE(ru_u_yu, bindings = <&kp RU_U>, <&kp RU_YU>;
 ZMK_TAP_DANCE(ru_fslh_bslh, bindings = <&kp RU_SLASH>, <&kp BSLH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(ru_hash_no, bindings = <&kp NUHS>, <&kp RU_NO>;
-              tapping-term-ms = <200>;)
-
 ZMK_TAP_DANCE(ru_ca_si, bindings = <&kp RU_COMMA>, <&kp RU_SEMI>;
               tapping-term-ms = <200>;)
 
