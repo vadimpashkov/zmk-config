@@ -4,18 +4,21 @@
 
 #define EN 0
 #define RU 1
-#define G_A 2
-#define G_B 3
-#define D_A 4
-#define D_B 5
-#define NAV 6
-#define MOUSE 7
-#define NAS 8
-#define NAS_RU 9
-#define FK 10
+#define NAS 2
+#define NAV 3
+#define MOUSE 4
+#define FK 5
+#define G_A 6
+#define G_B 7
 
 #define SET_EN LA(LS(N1))
 #define SET_RU LA(LS(N2))
+
+#define OPEN_CHAT ENTER
+#define OPEN_GLOBAL_CHAT LS(OPEN_CHAT)
+
+#define BUFFER LG(V)
+#define EMOJI LG(DOT)
 
 #ifndef ZMK_BASE_LAYER
     #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
@@ -26,9 +29,9 @@
 
 // REMARK: Trigger tap-action on all interrupts
 #define MT_CORE                                                                \
-    flavor = "tap-preferred";                                                    \
-    tapping-term-ms = <220>;                                                     \
-    quick-tap-ms = <220>;                                                        \
+    flavor = "tap-preferred";                                                  \
+    tapping-term-ms = <220>;                                                   \
+    quick-tap-ms = <220>;                                                      \
     hold-trigger-key-positions = <0>;
 
 &sk {

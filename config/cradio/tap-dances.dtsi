@@ -13,22 +13,7 @@ ZMK_TAP_DANCE(qmark_excl, bindings = <&kp QMARK>, <&kp EXCL>;
 ZMK_TAP_DANCE(fslh_bslh, bindings = <&kp FSLH>, <&kp BSLH>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(grave, bindings = <&kp GRAVE>, <&graves>;
-              tapping-term-ms = <200>;)
-
 ZMK_TAP_DANCE(amps_pipe, bindings = <&kp AMPS>, <&kp PIPE>;
-              tapping-term-ms = <200>;)
-
-ZMK_TAP_DANCE(lpar_rpar, bindings = <&kp LPAR>, <&kp RPAR>;
-              tapping-term-ms = <200>;)
-
-ZMK_TAP_DANCE(lbrc_rbrc, bindings = <&kp LBRC>, <&kp RBRC>;
-              tapping-term-ms = <200>;)
-
-ZMK_TAP_DANCE(lbkt_rbkt, bindings = <&kp LBKT>, <&kp RBKT>;
-              tapping-term-ms = <200>;)
-
-ZMK_TAP_DANCE(lt_gt, bindings = <&kp LT>, <&kp GT>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(dllr_tilde, bindings = <&kp DLLR>, <&kp TILDE>;
@@ -37,7 +22,16 @@ ZMK_TAP_DANCE(dllr_tilde, bindings = <&kp DLLR>, <&kp TILDE>;
 ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&kp CARET>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp LG(V)>, <&kp LG(DOT)>;
+ZMK_TAP_DANCE(space_enter, bindings = <&kp SPACE>, <&kp ENTER>;
+              tapping-term-ms = <200>;)
+
+ZMK_TAP_DANCE(lpar_rpar_shift, bindings = <&mt LSHIFT LPAR>, <&kp RPAR>;
+              tapping-term-ms = <200>;)
+ZMK_TAP_DANCE(lbrc_rbrc_ctrl, bindings = <&mt LCTRL LBRC>, <&kp RBRC>;
+              tapping-term-ms = <200>;)
+ZMK_TAP_DANCE(lbkt_rbkt_alt, bindings = <&mt LALT LBKT>, <&kp RBKT>;
+              tapping-term-ms = <200>;)
+ZMK_TAP_DANCE(lt_gt_gui, bindings = <&mt LGUI LT>, <&kp GT>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(ru_ye_yo_alt, bindings = <&mt LALT RU_YE>, <&kp RU_YO>;
