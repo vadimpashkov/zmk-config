@@ -1,5 +1,4 @@
 ZMK_HOLD_TAP(sl_kp, bindings = <&sl>, <&kp>; MT_CORE)
 ZMK_HOLD_TAP(sk_lt, bindings = <&mo>, <&sk>; MT_CORE)
 ZMK_HOLD_TAP(kt_lt, bindings = <&mo>, <&kt>; MT_CORE)
-ZMK_HOLD_TAP(mo_mo, bindings = <&mo>, <&mo>; MT_CORE)
 ZMK_HOLD_TAP(ht, bindings = <&kp>, <&kp>; MT_CORE)
