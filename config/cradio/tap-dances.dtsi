@@ -37,7 +37,7 @@ ZMK_TAP_DANCE(lt_gt_gui, bindings = <&mt LGUI LT>, <&kp GT>;
 ZMK_TAP_DANCE(to_en_or_mouse, bindings = <&to_en_layer>, <&mouse_smart MOUSE>;
               tapping-term-ms = <200>;)
 
-ZMK_TAP_DANCE(g_b_h_alt, bindings = <&lt G_B H>, <&sk LALT>;
+ZMK_TAP_DANCE(td_gb, bindings = <&mo_sk G_B LALT>, <&alt_sl_gb>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(ru_ye_yo_alt, bindings = <&mt LALT RU_YE>, <&kp RU_YO>;
