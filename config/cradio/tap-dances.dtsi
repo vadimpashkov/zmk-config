@@ -22,6 +22,8 @@ ZMK_TAP_DANCE(dllr_tilde, bindings = <&kp DLLR>, <&kp TILDE>;
 ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&kp CARET>;
               tapping-term-ms = <200>;)
 
+ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp BUFFER>, <&kp EMOJI>;
+
 ZMK_TAP_DANCE(lpar_rpar_shift, bindings = <&mt LSHIFT LPAR>, <&kp RPAR>;
               tapping-term-ms = <200>;)
 ZMK_TAP_DANCE(lbrc_rbrc_ctrl, bindings = <&mt LCTRL LBRC>, <&kp RBRC>;
@@ -29,9 +31,6 @@ ZMK_TAP_DANCE(lbrc_rbrc_ctrl, bindings = <&mt LCTRL LBRC>, <&kp RBRC>;
 ZMK_TAP_DANCE(lbkt_rbkt_alt, bindings = <&mt LALT LBKT>, <&kp RBKT>;
               tapping-term-ms = <200>;)
 ZMK_TAP_DANCE(lt_gt_gui, bindings = <&mt LGUI LT>, <&kp GT>;
-              tapping-term-ms = <200>;)
-
-ZMK_TAP_DANCE(to_en_or_mouse, bindings = <&to_en_layer>, <&mouse_smart MOUSE>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(ctrl_alt, bindings = <&kp LCTRL>, <&kt LALT>;

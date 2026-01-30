@@ -4,21 +4,13 @@
 
 #define EN 0
 #define RU 1
-#define NAS 2
-#define NAV 3
-#define MOUSE 4
-#define FK 5
-#define G_A 6
-#define G_B 7
-
-#define SET_EN LA(LS(N1))
-#define SET_RU LA(LS(N2))
-
-#define OPEN_CHAT ENTER
-#define OPEN_GLOBAL_CHAT LS(OPEN_CHAT)
-
-#define BUFFER LG(V)
-#define EMOJI LG(DOT)
+#define SYSTEM 2
+#define NAS 3
+#define NAV 4
+#define MOUSE 5
+#define FK 6
+#define G_A 7
+#define G_B 8
 
 #ifndef ZMK_BASE_LAYER
     #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
