@@ -8,4 +8,4 @@ ZMK_MACRO(open_global_ru_chat, bindings = <&to_ru_layer &kp OPEN_GLOBAL_CHAT>; w
 ZMK_MACRO(open_en_chat, bindings = <&to_en_layer &kp OPEN_CHAT>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(open_global_en_chat, bindings = <&to_en_layer &kp OPEN_GLOBAL_CHAT>; wait-ms = <0>; tap-ms = <5>;)
 
-ZMK_MACRO(remove_line, bindings = <&kp HOME>, <&macro_press &kp LSHFT>, <&kp END>, <&macro_release &kp LSHFT>, <&kp BACKSPACE>, <&kp BACKSPACE>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(remove_line, bindings = <&kp HOME>, <&macro_press &kp LSHFT>, <&kp END>, <&macro_release &kp LSHFT>, <&kp BACKSPACE>, <&kp BACKSPACE>; wait-ms = <20>; tap-ms = <20>;)
