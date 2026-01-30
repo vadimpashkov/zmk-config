@@ -4,11 +4,11 @@
 
 #define EN 0
 #define RU 1
-#define SYSTEM 2
-#define NAS 3
-#define NAV 4
-#define MOUSE 5
-#define FK 6
+#define NAS 2
+#define NAV 3
+#define MOUSE 4
+#define FK 5
+#define SYSTEM 6
 #define G_A 7
 #define G_B 8
 
