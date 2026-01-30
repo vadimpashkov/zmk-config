@@ -10,7 +10,7 @@
 #define _HML_NAS_KEYS_ &hml LGUI N0 &hml LALT N4 &hml LCTRL N5 &hml LSHFT N6
 #define _HMR_NAS_KEYS_ &lpar_rpar_shift &lbrc_rbrc_ctrl &lbkt_rbkt_alt &lt_gt_gui
 
-#define _HML_NAV_KEYS_ &hml LGUI SAVE &hml LALT COPY &hml LCTRL CUT &hml LSHFT PASTE
+#define _HML_NAV_KEYS_ &hml LGUI D_SAVE &hml LALT D_COPY &hml LCTRL D_CUT &hml LSHFT D_PASTE
 
 #define TO_SMART_MOUSE &mouse_smart MOUSE
 
@@ -25,11 +25,11 @@
 #define BUFFER LG(V)
 #define EMOJI LG(DOT)
 
-#define CUT LC(X)
-#define COPY LC(C)
-#define PASTE LC(V)
+#define D_CUT LC(X)
+#define D_COPY LC(C)
+#define D_PASTE LC(V)
 
-#define SAVE LC(S)
+#define D_SAVE LC(S)
 
-#define REDO LC(Y)
-#define UNDO LC(Z)
+#define D_REDO LC(Y)
+#define D_UNDO LC(Z)
