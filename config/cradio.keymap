@@ -9,6 +9,7 @@
 
 #include "cradio/defs.dtsi"
 #include "cradio/hrm.dtsi"
+#include "cradio/layer-bindings.dtsi"
 #include "cradio/tap-dances.dtsi"
 #include "cradio/hold-tap.dtsi"
 #include "cradio/macros.dtsi"
@@ -16,7 +17,6 @@
 #include "cradio/leader.dtsi"
 #include "cradio/mouse.dtsi"
 #include "cradio/auto-layers.dtsi"
-#include "cradio/layer-bindings.dtsi"
 
 ZMK_BASE_LAYER(En,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
