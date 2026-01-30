@@ -23,6 +23,7 @@ ZMK_TAP_DANCE(under_caret, bindings = <&kp UNDER>, <&kp CARET>;
               tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(buffer_emoji, bindings = <&kp BUFFER>, <&kp EMOJI>;
+              tapping-term-ms = <200>;)
 
 ZMK_TAP_DANCE(lpar_rpar_shift, bindings = <&mt LSHIFT LPAR>, <&kp RPAR>;
               tapping-term-ms = <200>;)
