@@ -16,7 +16,10 @@
 
 ZMK_LEADER_SEQUENCE(bt_0, &bt BT_SEL 0, B T N0)
 ZMK_LEADER_SEQUENCE(bt_1, &bt BT_SEL 1, B T N1)
-ZMK_LEADER_SEQUENCE(bt_clear, &bt BT_CLR, C L E A R)
+ZMK_LEADER_SEQUENCE(bt_clear, &bt BT_CLR, B T C)
 
-ZMK_LEADER_SEQUENCE(boot_left, &bootloader, G T S R A)
-ZMK_LEADER_SEQUENCE(boot_right, &bootloader, M N E I O)
+ZMK_LEADER_SEQUENCE(boot, &bootloader, B O O T)
+ZMK_LEADER_SEQUENCE(reset, &reset, R E S E T)
+
+ZMK_LEADER_SEQUENCE(ide_goto_file, &kp F, G T F)
+ZMK_LEADER_SEQUENCE(ide_goto_line, &kp L, G T L)
