@@ -19,7 +19,7 @@ ZMK_LEADER_SEQUENCE(bt_1, &bt BT_SEL 1, B T N1)
 ZMK_LEADER_SEQUENCE(bt_clear, &bt BT_CLR, B T C)
 
 ZMK_LEADER_SEQUENCE(boot, &bootloader, B O O T)
-ZMK_LEADER_SEQUENCE(reset, &reset, R E S E T)
+ZMK_LEADER_SEQUENCE(reset, &sys_reset, R E S E T)
 
 ZMK_LEADER_SEQUENCE(ide_goto_file, &kp F, G T F)
 ZMK_LEADER_SEQUENCE(ide_goto_line, &kp L, G T L)
