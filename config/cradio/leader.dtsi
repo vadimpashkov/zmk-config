@@ -14,6 +14,8 @@
         }; \
     };
 
+// --- System ---
+
 ZMK_LEADER_SEQUENCE(bt_0, &bt BT_SEL 0, B T N0)
 ZMK_LEADER_SEQUENCE(bt_1, &bt BT_SEL 1, B T N1)
 ZMK_LEADER_SEQUENCE(bt_clear, &bt BT_CLR, B T C)
@@ -21,5 +23,33 @@ ZMK_LEADER_SEQUENCE(bt_clear, &bt BT_CLR, B T C)
 ZMK_LEADER_SEQUENCE(boot, &bootloader, B O O T)
 ZMK_LEADER_SEQUENCE(reset, &sys_reset, R E S E T)
 
-ZMK_LEADER_SEQUENCE(ide_goto_file, &kp F, G T F)
-ZMK_LEADER_SEQUENCE(ide_goto_line, &kp L, G T L)
+// --- IDE ---
+
+// Toggle Workspace Panels
+ZMK_LEADER_SEQUENCE(ide_toggle_all_panel, &ide_m_toggle_all_panel, T A)
+ZMK_LEADER_SEQUENCE(ide_toggle_project_panel, &ide_m_toggle_project_panel, T P)
+ZMK_LEADER_SEQUENCE(ide_toggle_terminal_panel, &ide_m_toggle_terminal_panel, T T)
+ZMK_LEADER_SEQUENCE(ide_toggle_git_panel, &ide_m_toggle_git_panel, T G)
+ZMK_LEADER_SEQUENCE(ide_toggle_debug_panel, &ide_m_toggle_debug_panel, T D)
+
+// Toggle Workspace Features
+ZMK_LEADER_SEQUENCE(ide_toggle_centered_layout, &ide_m_toggle_centered_layout, W C)
+ZMK_LEADER_SEQUENCE(ide_toggle_zoom, &ide_m_toggle_zoom, W Z)
+
+// Find
+ZMK_LEADER_SEQUENCE(ide_go_to_symbol_in_buffer, &ide_m_go_to_symbol_in_buffer, F B S)
+ZMK_LEADER_SEQUENCE(ide_find_symbol_in_project, &ide_m_find_symbol_in_project, F P S)
+ZMK_LEADER_SEQUENCE(ide_find_text_in_buffer, &ide_m_find_text_in_buffer, F B T)
+ZMK_LEADER_SEQUENCE(ide_find_text_in_project, &ide_m_find_text_in_project, F P T)
+ZMK_LEADER_SEQUENCE(ide_find_and_replace_text_in_buffer, &ide_m_find_and_replace_text_in_buffer, F B R)
+ZMK_LEADER_SEQUENCE(ide_find_and_replace_text_in_project, &ide_m_find_and_replace_text_in_project, F P R)
+ZMK_LEADER_SEQUENCE(ide_open_file_finder, &ide_m_open_file_finder, F F)
+ZMK_LEADER_SEQUENCE(ide_go_to_line, &ide_m_go_to_line, F Q)
+
+// Open
+ZMK_LEADER_SEQUENCE(ide_open_diagnostics_tab, &ide_m_open_diagnostics_tab, Z D)
+ZMK_LEADER_SEQUENCE(ide_open_selections_in_multibuffer, &ide_m_open_selections_in_multibuffer, Z B)
+
+// Prediction (AI)
+ZMK_LEADER_SEQUENCE(ide_toggle_edit_prediction, &ide_m_toggle_edit_prediction, P T)
+ZMK_LEADER_SEQUENCE(ide_open_prediction_chat, &ide_m_open_prediction_chat, P C)

@@ -1,11 +1,44 @@
+ZMK_MACRO(leader_ide, bindings = <&sk LSHFT &leader>;)
+
 ZMK_MACRO(to_en_layer, bindings = <&kp SET_EN &to EN>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(to_ru_layer, bindings = <&kp SET_RU &to RU>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(to_game_layer, bindings = <&kp SET_EN &to G_A>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(to_nas_layer, bindings = <&kp SET_EN &to NAS>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(to_nav_layer, bindings = <&kp SET_EN &to NAV>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(to_mouse_layer, bindings = <&kp SET_EN TO_SMART_MOUSE>; wait-ms = <0>; tap-ms = <5>;)
 
-ZMK_MACRO(open_ru_chat, bindings = <&to_ru_layer &kp OPEN_CHAT>; wait-ms = <0>; tap-ms = <5>;)
-ZMK_MACRO(open_global_ru_chat, bindings = <&to_ru_layer &kp OPEN_GLOBAL_CHAT>; wait-ms = <0>; tap-ms = <5>;)
-ZMK_MACRO(open_en_chat, bindings = <&to_en_layer &kp OPEN_CHAT>; wait-ms = <0>; tap-ms = <5>;)
-ZMK_MACRO(open_global_en_chat, bindings = <&to_en_layer &kp OPEN_GLOBAL_CHAT>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(open_chat, bindings = <&to_en_layer &kp OPEN_CHAT>; wait-ms = <0>; tap-ms = <5>;)
+ZMK_MACRO(open_global_chat, bindings = <&to_en_layer &kp OPEN_GLOBAL_CHAT>; wait-ms = <0>; tap-ms = <5>;)
 
-ZMK_MACRO(remove_line, bindings = <&kp HOME>, <&macro_press &kp LSHFT>, <&kp END>, <&macro_release &kp LSHFT>, <&kp BACKSPACE>, <&kp BACKSPACE>; wait-ms = <20>; tap-ms = <20>;)
+ZMK_MACRO(remove_line, bindings = <&kp HOME>, <&macro_press &kp LSHFT>, <&kp END>, <&macro_release &kp LSHFT>, <&kp BSPC>, <&kp BSPC>; wait-ms = <20>; tap-ms = <5>;)
+
+// --- IDE ---
+
+// Toggle Workspace Panels
+ZMK_MACRO(ide_m_toggle_all_panel, bindings = <&kp LC(T) &kp A>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_toggle_project_panel, bindings = <&kp LC(T) &kp P>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_toggle_terminal_panel, bindings = <&kp LC(T) &kp T>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_toggle_git_panel, bindings = <&kp LC(T) &kp G>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_toggle_debug_panel, bindings = <&kp LC(T) &kp D>; wait-ms = <10>; tap-ms = <5>;)
+
+// Toggle Workspace Features
+ZMK_MACRO(ide_m_toggle_centered_layout, bindings = <&kp LC(W) &kp C>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_toggle_zoom, bindings = <&kp LC(W) &kp Z>; wait-ms = <10>; tap-ms = <5>;)
+
+// Find
+ZMK_MACRO(ide_m_go_to_symbol_in_buffer, bindings = <&kp LC(F) &kp B &kp S>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_find_symbol_in_project, bindings = <&kp LC(F) &kp P &kp S>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_find_text_in_buffer, bindings = <&kp LC(F) &kp B &kp T>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_find_text_in_project, bindings = <&kp LC(F) &kp P &kp T>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_find_and_replace_text_in_buffer, bindings = <&kp LC(F) &kp B &kp R>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_find_and_replace_text_in_project, bindings = <&kp LC(F) &kp P &kp R>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_open_file_finder, bindings = <&kp LC(F) &kp F>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_go_to_line, bindings = <&kp LC(F) &kp L>; wait-ms = <10>; tap-ms = <5>;)
+
+// Open
+ZMK_MACRO(ide_m_open_diagnostics_tab, bindings = <&kp LC(O) &kp D>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_open_selections_in_multibuffer, bindings = <&kp LC(O) &kp B>; wait-ms = <10>; tap-ms = <5>;)
+
+// Prediction (AI)
+ZMK_MACRO(ide_m_toggle_edit_prediction, bindings = <&kp LC(P) &kp T>; wait-ms = <10>; tap-ms = <5>;)
+ZMK_MACRO(ide_m_open_prediction_chat, bindings = <&kp LC(P) &kp C>; wait-ms = <10>; tap-ms = <5>;)

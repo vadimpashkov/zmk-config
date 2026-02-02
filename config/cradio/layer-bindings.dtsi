@@ -2,15 +2,15 @@
 #define ___ &trans
 
 #define _HML_KEYS_ &hml LGUI A &hml LALT R &hml LCTRL S &hml LSHFT T
-#define _HMR_KEYS_ &hmr RSHFT N &hmr RCTRL E &hmr LALT I &hmr LGUI O
+#define _HMR_KEYS_ &hmr LSHFT N &hmr LCTRL E &hmr LALT I &hmr LGUI O
 
 #define _HML_RU_KEYS_ &hml LGUI RU_Z &hml LALT RU_V &hml LCTRL RU_N &hml LSHFT RU_T
-#define _HMR_RU_KEYS_ &hmr RSHFT RU_A &hmr RCTRL RU_O &ru_ye_yo_alt &hmr LGUI RU_S
+#define _HMR_RU_KEYS_ &hmr LSHFT RU_A &hmr LCTRL RU_O &ru_ye_yo_alt &hmr LGUI RU_S
 
 #define _HML_NAS_KEYS_ &hml LGUI N0 &hml LALT N4 &hml LCTRL N5 &hml LSHFT N6
 #define _HMR_NAS_KEYS_ &lpar_rpar_shift &lbrc_rbrc_ctrl &lbkt_rbkt_alt &lt_gt_gui
 
-#define _HML_NAV_KEYS_ &hml LGUI D_SAVE &hml LALT D_COPY &mt LCTRL &remove_line &hml LSHFT D_PASTE
+#define _HML_NAV_KEYS_ &hml LGUI D_SAVE &hml LALT D_COPY &ctrl_rem LCTRL 0 &hml LSHFT D_PASTE
 
 #define TO_SMART_MOUSE &mouse_smart MOUSE
 
