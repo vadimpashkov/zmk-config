@@ -1,3 +1,5 @@
+ZMK_MACRO(leader_ide, bindings = <&sk LSHFT &leader>;)
+
 ZMK_MACRO(to_en_layer, bindings = <&kp SET_EN &to EN>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(to_ru_layer, bindings = <&kp SET_RU &to RU>; wait-ms = <0>; tap-ms = <5>;)
 ZMK_MACRO(to_game_layer, bindings = <&kp SET_EN &to G_A>; wait-ms = <0>; tap-ms = <5>;)
